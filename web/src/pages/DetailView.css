@@ -2,17 +2,17 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100%;
     width: 100%;
 }
 .employeeRow{
     /* width 60% */
-    width: 60%;
+    width: 55%;
 }
 .employeeDetail{
     /* width 40% */
-    width: 40%;
+    width: 35%;
 }
 .row_employee {
     display: flex;
