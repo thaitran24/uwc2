@@ -6,6 +6,7 @@ import AppLayout from './components/layout/AppLayout';
 import Blank from './pages/Blank.js';
 import DetailView from './pages/DetailView';
 import SetVehicle from './pages/SetVehicle';
+import SetMCP from './pages/SetMCP';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
                     <Route path='/started' element={<Blank />} />
                     <Route path='/calendar' element={<Blank />} />
                     <Route path='/user' element={<SetVehicle />} />
+                    <Route path='/setMCP' element={<SetMCP />} />
                     <Route path='/order' element={<Blank />} />
                 </Route>
             </Routes>
