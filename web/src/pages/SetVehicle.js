@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import EmployeeRow from "../components/EmployeeRow/EmployeeRow";
 import { EmployeeInfo } from "../components/EmployeeDetail/EmployeeDetail";
 import "./DetailView.css";
@@ -97,34 +97,43 @@ function EmployeeTable({ activeIndex, changeActiveIndex }) {
   );
 }
 
-function VehicleHeader() {
+function VehicleRow({ vehicleName, vehicleId, consumptionLv }) {
   return (
-    <div className="header_vehicle">
-      <span className="header_vehicle__name">
-        Name
-      </span>
-      <span className="header_vehicle__id">
-        VehicleID
-      </span>
-      <span className="header_vehicle__consLv">
-        Consumption Lv.
-      </span>
-    </div>
+    <tr className="vehicle_table__content">
+      <td>{vehicleName}</td>
+      <td>{vehicleId}</td>
+      <td>{consumptionLv}</td>
+    </tr>
   );
 }
 
-function VehicleRow({ vehicleName, vehicleId, consumptionLv }) {
+function VehicleTable() {
   return (
-    <div className="vehicleRow">
-      <span className="vehicleRow__name">
-        {vehicleName}
-      </span>
-      <span className="vehicleRow__id">
-        {vehicleId}
-      </span>
-      <span className="vehicleRow__consLv">
-        {consumptionLv}
-      </span>
+    <div className="vehicle_table">
+      <table>
+        <colgroup>
+          <col style={{ width: "50%" }} />
+          <col style={{ width: "25%" }} />
+          <col style={{ width: "50%" }} />
+        </colgroup>
+        <thead>
+          <tr className="vehicle_table__header">
+            <th>Name</th>
+            <th>VehicleID</th>
+            <th>Consumption Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          {vehicleList.map((vehicle, index) => (
+            <VehicleRow
+              key={index}
+              vehicleName={vehicle.vehicleName}
+              vehicleId={vehicle.vehicleId}
+              consumptionLv={vehicle.consumptionLv}
+            />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
@@ -151,18 +160,29 @@ export default function SetVehicle() {
         <div>
           <Calendar onChange={setCurrentDay} value={currentDay} />
         </div>
-        <div>
-          <span>Available Vehicle</span>
-          <Button>Confirm to assign vehicle</Button>
-          <VehicleHeader />
-          {vehicleList.map((vehicle, index) => (
-            <VehicleRow
-              key={index}
-              vehicleName={vehicle.vehicleName}
-              vehicleId={vehicle.vehicleId}
-              consumptionLv={vehicle.consumptionLv}
-            />
-          ))}
+        <div
+          style={{
+            marginTop: "20px",
+          }}
+        >
+          <span
+            style={{
+              textAlign: "center",
+              verticalAlign: "middle",
+              fontSize: "14px",
+              fontWeight: 500,
+            }}
+          >
+            Available Vehicle
+          </span>
+          <Button
+            style={{
+              float: "right",
+            }}
+          >
+            Assign
+          </Button>
+          <VehicleTable />
         </div>
       </div>
     </div>

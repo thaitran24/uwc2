@@ -1,19 +1,12 @@
-.header_vehicle {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 14px;
+th,
+td {
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  vertical-align: middle;
 }
 
-.vehicleRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 14px;
-    font-size: 18px;
-    line-height: 24px;
+tr.vehicle_table__content:hover {
+  background-color: rgba(248, 230, 136, 1);
 }
