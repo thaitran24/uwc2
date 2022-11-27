@@ -7,7 +7,7 @@ import Blank from './pages/Blank.js';
 import DetailView from './pages/DetailView';
 import SetVehicle from './pages/SetVehicle';
 import SetMCP from './pages/SetMCP';
-
+import SetSchedule from './pages/SetSchedule';
 
 function App() {
     return (
@@ -21,6 +21,8 @@ function App() {
                     <Route path='/user' element={<SetVehicle />} />
                     <Route path='/setMCP' element={<SetMCP />} />
                     <Route path='/order' element={<Blank />} />
+                    <Route path='/schedule' element={<SetSchedule/>} />
+
                 </Route>
             </Routes>
         </BrowserRouter>
