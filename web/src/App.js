@@ -9,7 +9,7 @@ import Overview from './pages/Overview';
 import SetVehicle from './pages/SetVehicle';
 import SetMCP from './pages/SetMCP';
 import SetSchedule from './pages/SetSchedule';
-
+import Communication from './pages/Communication';
 function App() {
   
     return (
@@ -24,6 +24,7 @@ function App() {
                     <Route path='/setMCP' element={<SetMCP />} />
                     <Route path='/order' element={<Blank />} />
                     <Route path='/schedule' element={<SetSchedule/>} />
+                    <Route path='/communication' element={<Communication />} />
 
                 </Route>
             </Routes>

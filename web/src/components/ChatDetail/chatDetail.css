@@ -1,0 +1,10 @@
+.chatDetailContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 42px;
+    padding: 20px;
+    margin: 20px;
+}

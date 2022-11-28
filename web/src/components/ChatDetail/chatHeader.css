@@ -1,0 +1,14 @@
+.chatHeader_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ebebeb;
+}
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+    width: 20%;
+}

@@ -1,0 +1,36 @@
+.otherChat {
+    background: #E7E7E7;
+border-radius: 25px;
+padding: 10px;
+margin: 10px;
+width: fit-content;
+block-size: fit-content;
+/* fluid left */
+margin-right: auto;
+
+
+
+}
+.myChat {
+    background: #6E00FF;
+    border-radius: 25px;
+    border-radius: 25px;
+    padding: 10px;
+    margin: 10px;
+    width: fit-content;
+    block-size: fit-content;
+    /* fluid left */
+    margin-left: auto;
+    color: #fff;}
+    .sendInput{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 42px;
+        padding: 20px;
+        margin: 20px;
+    }
