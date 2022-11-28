@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import EmployeeRow from '../components/EmployeeRow/EmployeeRow'
 import EmployeeDetail from '../components/EmployeeDetail/EmployeeDetail';
 import './DetailView.css'
+
 const employees = [
   {
     id: 1,
@@ -45,7 +46,10 @@ const employees = [
     active: false
   },
 ];
-const DetailView = () => {
+
+
+function Overview() {
+  // display 5 rows by default
   const [data, setData] = useState(employees.slice(0, 5));
   const [page, setPage] = useState(1);
 
@@ -58,32 +62,27 @@ const DetailView = () => {
     setData(employees.slice((page - 1) * 5, page * 5));
   };
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  // change active index when click on row
-  const changeActiveIndex = (index) => {
-    console.log(index);
-    setActiveIndex(index);
-  };
   return (
     <div className='container'>
       <div className='employeeRow'>
-            <div className='row_employee'>
-              <div className='row_employee__name'>
-                  <h3>Name</h3>
-              </div>
-              <div className={`row_employee__status`}>
-                  <h3>status</h3>
-              </div>
-              <div className='row_employee__status'>
-                  <h3>vehicle</h3>
-              </div>
-              <div className='row_employee__status'>
-                  <h3> vehicle_id</h3>
-              </div>
-              <div className='row_employee__status'>
-                  <h3> MCP</h3>
-              </div>
-            </div>
+
+        <div className='row_employee'>
+          <div className='row_employee__name'>
+            <h3>Name</h3>
+          </div>
+          <div className={`row_employee__status`}>
+            <h3>status</h3>
+          </div>
+          <div className='row_employee__status'>
+            <h3>vehicle</h3>
+          </div>
+          <div className='row_employee__status'>
+            <h3> vehicle_id</h3>
+          </div>
+          <div className='row_employee__status'>
+            <h3> MCP</h3>
+          </div>
+        </div>
         <div>
           {data.map((employee, index) => (
             <EmployeeRow
@@ -93,26 +92,17 @@ const DetailView = () => {
               status={employee.status}
               vehicle={employee.vehicle}
               vehicle_id={employee.vehicle_id}
-              MCP={employee.MCP}
-              active={activeIndex === index}
-              changeActiveIndex={() => changeActiveIndex(index)}
-            />
+              MCP={employee.MCP} />
           ))}
-
         </div>
+        {/* change page */}
         <div className='pagination'>
           <button onClick={() => { handlePageChange(page - 1); } }>LEFT</button>
           <button onClick={() => { handlePageChange(page + 1); } }>RIGHT</button>
         </div>
       </div>
-      <div className='employeeDetail'>
-        <EmployeeDetail
-          name={employees[activeIndex].name}
-          email={employees[activeIndex].email}
-        />
-      </div>
     </div>
-  )
+  );
 }
 
-export default DetailView
+export default Overview

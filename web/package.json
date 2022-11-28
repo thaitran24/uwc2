@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
     "boxicons": "^2.1.4",
+    "node-fetch": "^3.3.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-calendar": "^4.0.0",
@@ -40,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0"
   }
 }

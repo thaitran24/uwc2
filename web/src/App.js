@@ -5,16 +5,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
 import Blank from './pages/Blank.js';
 import DetailView from './pages/DetailView';
-
+import Overview from './pages/Overview';
 
 function App() {
+  
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<AppLayout />}>
                     <Route index element={<Blank />} />
                     <Route path='/detailView' element={<DetailView />} />
-                    <Route path='/started' element={<Blank />} />
+                    <Route path='/overview' element={<Overview />} />
                     <Route path='/calendar' element={<Blank />} />
                     <Route path='/user' element={<Blank />} />
                     <Route path='/order' element={<Blank />} />

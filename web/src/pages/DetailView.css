@@ -7,12 +7,12 @@
     width: 100%;
 }
 .employeeRow{
-    /* width 60% */
-    width: 55%;
+/* flex item 2 sesson */
+    flex: 2;
 }
 .employeeDetail{
     /* width 40% */
-    width: 35%;
+    flex: 1;
 }
 .row_employee {
     display: flex;
