@@ -8,3 +8,25 @@
     padding: 20px;
     margin: 20px;
 }
+.sendInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+.inputForm {
+    flex: 2;
+}
+.sendInput form input{
+    width: 80%;
+    background-color: #EFF6FC;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 3px;
+}
+.sendInput form button {
+    display: none;
+}

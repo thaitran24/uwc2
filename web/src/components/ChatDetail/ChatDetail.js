@@ -1,7 +1,7 @@
 import React from 'react'
 import ChatHeader from './ChatHeader'
 import ChatBody from './ChatBody'
-import {BsFillMicFill} from 'react-icons/bs'
+import { BsFillMicFill } from 'react-icons/bs'
 import "./chatDetail.css"
 const ChatDetail = () => {
   return (
@@ -10,14 +10,14 @@ const ChatDetail = () => {
       <ChatBody />
       {/* send input box */}
       <div className='sendInput'>
-      <form>
-        <input type="text" placeholder='Type a message' />
-        <button type='submit'>Send</button>
-      </form>
-      {/* microphone */}
-      <div className='microphone'>
-        <BsFillMicFill />
-      </div></div>
+        <form className='inputForm'>
+          <input type="text" placeholder='Type a message' />
+          <button type='submit'>Send</button>
+        </form>
+        {/* microphone */}
+        <div className='microphone'>
+          <BsFillMicFill />
+        </div></div>
     </div>
   )
 }
