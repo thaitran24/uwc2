@@ -1,20 +1,15 @@
 import React, { useState } from "react";
-import { StatusBar } from "expo-status-bar";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  ToastAndroid,
-} from "react-native";
-import { FlatList } from "react-native-gesture-handler";
-import LogInScreen from "./src/screens/LogInScreen";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+import LogInScreen from "./src/screens/LogInScreen";
+import Message from "./src/screens/Message";
+import Routes from "./src/screens/Routes";
+import Calendar from "./src/screens/Calendar";
+import CheckInOut from "./src/screens/CheckInOut";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -46,7 +41,59 @@ export default function App() {
           options={{
             tabBarLabel: "Login",
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="down" color={color} size={size} />
+              <MaterialCommunityIcons name="login" color={color} size={size} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Message"
+          component={Message}
+          options={{
+            tabBarLabel: "Message",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="message"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Routes"
+          component={Routes}
+          options={{
+            tabBarLabel: "Routes",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="routes" color={color} size={size} />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Calendar"
+          component={Calendar}
+          options={{
+            tabBarLabel: "Calendar",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons
+                name="calendar"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+
+        <Tab.Screen
+          name="Check"
+          component={CheckInOut}
+          options={{
+            tabBarLabel: "Check",
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="check" color={color} size={size} />
             ),
           }}
         />
