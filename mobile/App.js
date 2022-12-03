@@ -8,18 +8,20 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import LogInScreen from "./src/screens/LogInScreen";
 import Message from "./src/screens/Message";
 import Routes from "./src/screens/Routes";
-import Calendar from "./src/screens/Calendar";
+import JobTracker from "./src/screens/Calendar";
 import CheckInOut from "./src/screens/CheckInOut";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  return (
-    // <SafeAreaView style={styles.root}>
-    //   <LogInScreen />
-    // </SafeAreaView>
+  const [isLogin, setIsLogin] = useState(true);
 
+  const onLoginPressed = () => {
+    setIsLogin(true);
+  };
+
+  return (
     <NavigationContainer>
       {/* <Stack.Navigator>
         <Stack.Screen
@@ -30,73 +32,91 @@ export default function App() {
       </Stack.Navigator> */}
 
       <Tab.Navigator
-        initialRouteName="Feed"
+        initialRouteName="Login"
         screenOptions={{
           tabBarActiveTintColor: "#FF5714",
         }}
       >
-        <Tab.Screen
-          name="Login"
-          component={LogInScreen}
-          options={{
-            tabBarLabel: "Login",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="login" color={color} size={size} />
-            ),
-          }}
-        />
+        {isLogin && (
+          <Tab.Screen
+            name="Login"
+            component={LogInScreen}
+            options={{
+              tabBarLabel: "Login",
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name="login"
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
+          />
+        )}
 
-        <Tab.Screen
-          name="Message"
-          component={Message}
-          options={{
-            tabBarLabel: "Message",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="message"
-                color={color}
-                size={size}
-              />
-            ),
-          }}
-        />
+        {isLogin && (
+          <>
+            <Tab.Screen
+              name="Message"
+              component={Message}
+              options={{
+                tabBarLabel: "Message",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons
+                    name="message"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
 
-        <Tab.Screen
-          name="Routes"
-          component={Routes}
-          options={{
-            tabBarLabel: "Routes",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="routes" color={color} size={size} />
-            ),
-          }}
-        />
+            <Tab.Screen
+              name="Routes"
+              component={Routes}
+              options={{
+                tabBarLabel: "Routes",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons
+                    name="routes"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
 
-        <Tab.Screen
-          name="Calendar"
-          component={Calendar}
-          options={{
-            tabBarLabel: "Calendar",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons
-                name="calendar"
-                color={color}
-                size={size}
-              />
-            ),
-          }}
-        />
+            <Tab.Screen
+              name="Calendar"
+              component={JobTracker}
+              options={{
+                tabBarLabel: "Calendar",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons
+                    name="calendar"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
 
-        <Tab.Screen
-          name="Check"
-          component={CheckInOut}
-          options={{
-            tabBarLabel: "Check",
-            tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="check" color={color} size={size} />
-            ),
-          }}
-        />
+            <Tab.Screen
+              name="Check"
+              component={CheckInOut}
+              options={{
+                tabBarLabel: "Check",
+                tabBarIcon: ({ color, size }) => (
+                  <MaterialCommunityIcons
+                    name="check"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
+          </>
+        )}
       </Tab.Navigator>
     </NavigationContainer>
   );
