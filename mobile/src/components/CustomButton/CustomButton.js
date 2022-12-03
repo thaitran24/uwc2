@@ -32,8 +32,6 @@ const CustomButton = ({
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-
     padding: 15,
     marginVertical: 5,
 
@@ -42,10 +40,18 @@ const styles = StyleSheet.create({
   },
 
   container_PRIMARY: {
+    width: "100%",
     backgroundColor: "#FF8758",
   },
 
-  container_TERTIARY: {},
+  container_TERTIARY: {
+    width: "100%",
+  },
+
+  container_GROUP: {
+    width: "45%",
+    backgroundColor: "#FF8758",
+  },
 
   text: {
     fontWeight: "bold",
@@ -54,6 +60,10 @@ const styles = StyleSheet.create({
 
   text_TERTIARY: {
     color: "gray",
+  },
+
+  text_GROUP: {
+    color: "white",
   },
 });
 
