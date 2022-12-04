@@ -1,54 +1,53 @@
-import React, { useEffect, useRef, useState } from 'react'
-import EmployeeRow from '../components/EmployeeRow/EmployeeRow'
-import EmployeeDetail from '../components/EmployeeDetail/EmployeeDetail';
-import './DetailView.css'
+import React, { useState } from "react";
+import EmployeeRow from "../components/EmployeeRow/EmployeeRow";
+import EmployeeDetail from "../components/EmployeeDetail/EmployeeDetail";
+import "./DetailView.css";
 const employees = [
   {
     id: 1,
-    img: 'https://picsum.photos/200',
-    name: 'John Doe',
-    email: 'johnDon@123.con',
-    status: 'online',
-    vehicle: 'Car',
-    vehicle_id: 'sdf',
-    MCP: 'MCP 1',
-    active: true
+    img: "https://picsum.photos/200",
+    name: "John Doe",
+    email: "johnDon@123.con",
+    status: "online",
+    vehicle: "Car",
+    vehicle_id: "sdf",
+    MCP: "MCP 1",
+    active: true,
   },
   {
     id: 2,
-    img: 'https://picsum.photos/200',
-    name: 'Bob Doe',
-    status: 'offline',
-    vehicle: 'Car',
-    vehicle_id: 'sdf',
-    MCP: 'MCP 1',
-    active: false
+    img: "https://picsum.photos/200",
+    name: "Bob Doe",
+    status: "offline",
+    vehicle: "Car",
+    vehicle_id: "sdf",
+    MCP: "MCP 1",
+    active: false,
   },
   {
     id: 6,
-    img: 'https://picsum.photos/200',
-    name: 'john Doe',
-    status: 'offline',
-    vehicle: 'Car',
-    vehicle_id: 'sdf',
-    MCP: 'MCP 1',
-    active: false
+    img: "https://picsum.photos/200",
+    name: "john Doe",
+    status: "offline",
+    vehicle: "Car",
+    vehicle_id: "sdf",
+    MCP: "MCP 1",
+    active: false,
   },
   {
     id: 3,
-    img: 'https://picsum.photos/200',
-    name: 'Robert Doe',
-    status: 'offline',
-    vehicle: 'Car',
-    vehicle_id: 'sdf',
-    MCP: 'MCP 1',
-    active: false
+    img: "https://picsum.photos/200",
+    name: "Robert Doe",
+    status: "offline",
+    vehicle: "Car",
+    vehicle_id: "sdf",
+    MCP: "MCP 1",
+    active: false,
   },
 ];
 const DetailView = () => {
   const [data, setData] = useState(employees.slice(0, 5));
   const [page, setPage] = useState(1);
-
 
   const handlePageChange = (page) => {
     if (page < 1) {
@@ -65,25 +64,25 @@ const DetailView = () => {
     setActiveIndex(index);
   };
   return (
-    <div className='container'>
-      <div className='employeeRow'>
-            <div className='row_employee'>
-              <div className='row_employee__name'>
-                  <h3>Name</h3>
-              </div>
-              <div className={`row_employee__status`}>
-                  <h3>status</h3>
-              </div>
-              <div className='row_employee__status'>
-                  <h3>vehicle</h3>
-              </div>
-              <div className='row_employee__status'>
-                  <h3> vehicle_id</h3>
-              </div>
-              <div className='row_employee__status'>
-                  <h3> MCP</h3>
-              </div>
-            </div>
+    <div className="container">
+      <div className="employeeRow">
+        <div className="row_employee">
+          <div className="row_employee__name">
+            <h3>Name</h3>
+          </div>
+          <div className={`row_employee__status`}>
+            <h3>status</h3>
+          </div>
+          <div className="row_employee__status">
+            <h3>vehicle</h3>
+          </div>
+          <div className="row_employee__status">
+            <h3> vehicle_id</h3>
+          </div>
+          <div className="row_employee__status">
+            <h3> MCP</h3>
+          </div>
+        </div>
         <div>
           {data.map((employee, index) => (
             <EmployeeRow
@@ -98,21 +97,32 @@ const DetailView = () => {
               changeActiveIndex={() => changeActiveIndex(index)}
             />
           ))}
-
         </div>
-        <div className='pagination'>
-          <button onClick={() => { handlePageChange(page - 1); } }>LEFT</button>
-          <button onClick={() => { handlePageChange(page + 1); } }>RIGHT</button>
+        <div className="pagination">
+          <button
+            onClick={() => {
+              handlePageChange(page - 1);
+            }}
+          >
+            LEFT
+          </button>
+          <button
+            onClick={() => {
+              handlePageChange(page + 1);
+            }}
+          >
+            RIGHT
+          </button>
         </div>
       </div>
-      <div className='employeeDetail'>
+      <div className="employeeDetail">
         <EmployeeDetail
           name={employees[activeIndex].name}
           email={employees[activeIndex].email}
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default DetailView
+export default DetailView;

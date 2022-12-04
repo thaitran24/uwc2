@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
-import Button from "react-bootstrap/Button";
 import EmployeeRow from "../components/EmployeeRow/EmployeeRow";
-import { EmployeeInfo } from "../components/EmployeeDetail/EmployeeDetail";
 import "./DetailView.css";
 import "./SetSchedule.css";
-
-const vehicleList = [
-  { vehicleName: "ABCDEF", vehicleId: 1, consumptionLv: 3 },
-  { vehicleName: "ABCDEF", vehicleId: 2, consumptionLv: 2 },
-  { vehicleName: "ABCDEF", vehicleId: 3, consumptionLv: 1 },
-  { vehicleName: "ABCDEF", vehicleId: 4, consumptionLv: 4 },
-  { vehicleName: "ABCDEF", vehicleId: 5, consumptionLv: 5 },
-];
 
 const employees = [
   {
@@ -97,47 +87,6 @@ function EmployeeTable({ activeIndex, changeActiveIndex }) {
   );
 }
 
-function VehicleRow({ vehicleName, vehicleId, consumptionLv }) {
-  return (
-    <tr className="vehicle_table__content">
-      <td>{vehicleName}</td>
-      <td>{vehicleId}</td>
-      <td>{consumptionLv}</td>
-    </tr>
-  );
-}
-
-function VehicleTable() {
-  return (
-    <div className="vehicle_table">
-      <table>
-        <colgroup>
-          <col style={{ width: "50%" }} />
-          <col style={{ width: "25%" }} />
-          <col style={{ width: "50%" }} />
-        </colgroup>
-        <thead>
-          <tr className="vehicle_table__header">
-            <th>Name</th>
-            <th>VehicleID</th>
-            <th>Consumption Level</th>
-          </tr>
-        </thead>
-        <tbody>
-          {vehicleList.map((vehicle, index) => (
-            <VehicleRow
-              key={index}
-              vehicleName={vehicle.vehicleName}
-              vehicleId={vehicle.vehicleId}
-              consumptionLv={vehicle.consumptionLv}
-            />
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
 export default function SetVehicle() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [currentDay, setCurrentDay] = useState(new Date());
@@ -153,21 +102,27 @@ export default function SetVehicle() {
         changeActiveIndex={changeActiveIndex}
       />
       <div className="left_column">
-
         <div>
-          <Calendar onClickDay={check} onChange={setCurrentDay} value={currentDay} />
+          <Calendar
+            onClickDay={check}
+            onChange={setCurrentDay}
+            value={currentDay}
+          />
         </div>
-
 
         {tasks.map((e) => (
           <div id={e.id} class="task">
             <h2 class="h2-task">{e.day}</h2>
             {/* role */}
             <div class="role-task black-color">
-              <h7 id="jan" onClick={clickJan}>Janitor</h7>
+              <h7 id="jan" onClick={clickJan}>
+                Janitor
+              </h7>
             </div>
             <div class="role-task">
-              <h7 id="col" onClick={clickCol}>Collector</h7>
+              <h7 id="col" onClick={clickCol}>
+                Collector
+              </h7>
             </div>
             {/* collectors box */}
             <div>
@@ -182,7 +137,6 @@ export default function SetVehicle() {
                     <p class="img-title">{a.name}</p>
                   </div>
                 </div>
-
               ))}
             </div>
             {/* janitors box */}
@@ -196,7 +150,7 @@ export default function SetVehicle() {
                     <p>Nhân viên: </p>
                     <div>
                       {a.employees.map((b) => (
-                        <div class='inline'>
+                        <div class="inline">
                           <img src={b.avatar} alt={b.name} title={b.name} />
                           <p class="img-title">{b.name}</p>
                         </div>
@@ -204,18 +158,13 @@ export default function SetVehicle() {
                     </div>
                   </div>
                 </div>
-
               ))}
             </div>
-
           </div>
         ))}
       </div>
     </div>
-
   );
-
-
 }
 const tasks = [
   {
@@ -244,8 +193,8 @@ const tasks = [
           {
             name: "Khoa Anh",
             avatar: "https://picsum.photos/200",
-          }
-        ]
+          },
+        ],
       },
       {
         place: "Gom rác ở KTX ĐHQG",
@@ -257,13 +206,10 @@ const tasks = [
           {
             name: "Anh Khoa",
             avatar: "https://picsum.photos/200",
-          }
-        ]
+          },
+        ],
       },
     ],
-
-
-
   },
   {
     id: "task26",
@@ -291,8 +237,8 @@ const tasks = [
           {
             name: "Quốc Việt",
             avatar: "https://picsum.photos/200",
-          }
-        ]
+          },
+        ],
       },
       {
         place: "Gom rác tuyến Quận 8 - KTX ĐHQG",
@@ -304,51 +250,45 @@ const tasks = [
           {
             name: "Quốc Việt",
             avatar: "https://picsum.photos/200",
-          }
-        ]
+          },
+        ],
       },
     ],
+  },
+];
 
-
-
-  }
-
-]
-
-const clickJan = e => {
+const clickJan = (e) => {
   e.target.style.color = "#000";
-  document.querySelector('#col').style.color = '#C5B5B5';
-  var boxes1 = document.querySelectorAll('.collectors-box');
+  document.querySelector("#col").style.color = "#C5B5B5";
+  var boxes1 = document.querySelectorAll(".collectors-box");
   for (var box of boxes1) {
-    box.style.display = 'none'
+    box.style.display = "none";
   }
-  var boxes2 = document.querySelectorAll('.janitors-box');
-  for (var box of boxes2) {
-    box.style.display = 'block'
+  var boxes2 = document.querySelectorAll(".janitors-box");
+  for (box of boxes2) {
+    box.style.display = "block";
   }
-}
+};
 
-
-const clickCol = e => {
+const clickCol = (e) => {
   e.target.style.color = "#000";
-  document.querySelector('#jan').style.color = '#C5B5B5';
-  var boxes1 = document.querySelectorAll('.collectors-box');
+  document.querySelector("#jan").style.color = "#C5B5B5";
+  var boxes1 = document.querySelectorAll(".collectors-box");
   for (var box of boxes1) {
-    box.style.display = 'block'
+    box.style.display = "block";
   }
 
-  var boxes2 = document.querySelectorAll('.janitors-box');
-  for (var box of boxes2) {
-    box.style.display = 'none'
+  var boxes2 = document.querySelectorAll(".janitors-box");
+  for (box of boxes2) {
+    box.style.display = "none";
   }
-}
-
+};
 
 const check = (value, event) => {
-  var hideDays = document.querySelectorAll('.task');
+  var hideDays = document.querySelectorAll(".task");
   for (var hideDay of hideDays) {
-    hideDay.style.display = 'none'
+    hideDay.style.display = "none";
   }
   var day = value.toString().slice(8, 10);
-  document.querySelector('#task' + day).style.display = 'block';
-}
+  document.querySelector("#task" + day).style.display = "block";
+};

@@ -1,91 +1,90 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
 }
-.employeeRow{
-    /* width 60% */
-    width: 55%;
+.employeeRow {
+  /* width 60% */
+  width: 55%;
 }
-.employeeDetail{
-    /* width 40% */
-    width: 35%;
+.employeeDetail {
+  /* width 40% */
+  width: 35%;
 }
 .row_employee {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
 }
 
-.h2-task{
-    text-align: center;
+.h2-task {
+  text-align: center;
 }
 
-.role-task{
-    width: 50%;
-    display: inline-block;
-    text-align: center;
-    color: #C5B5B5;
+.role-task {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+  color: #c5b5b5;
 }
 
-.black-color{
-    color: black;
+.black-color {
+  color: black;
 }
 
 .collectors-box,
-.janitors-box{
-    background-color: #A7F3B8;
-    border-radius: 15px;
-    padding: 10px;
-    margin-bottom: 20px;
-    padding-bottom: 40px;
+.janitors-box {
+  background-color: #a7f3b8;
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 40px;
 }
 
-.collectors-box{
-    display: none;
+.collectors-box {
+  display: none;
 }
 
 .collectors-place,
-.janitors-place{
-    width: 350px;
-    text-align: center;
+.janitors-place {
+  width: 350px;
+  text-align: center;
 }
 
 .collectors-box p,
-.janitors-box p{
-    display: inline-block;
+.janitors-box p {
+  display: inline-block;
 }
 
 .collectors-box img,
-.janitors-box img{
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
-    margin-left: 10px;
-
+.janitors-box img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  margin-left: 10px;
 }
 
-.img-title{
-    position: relative;
-    top: 38px;
-    left: -56px;
+.img-title {
+  position: relative;
+  top: 38px;
+  left: -56px;
 }
 
-.janitors-emp div{
-    display: inline-block;
+.janitors-emp div {
+  display: inline-block;
 }
 
-.task{
-    display: none;
+.task {
+  display: none;
 }
 
-#task27{
-    display: block;
+#task27 {
+  display: block;
 }

@@ -6,9 +6,9 @@
   border-bottom: 1px solid #ebebeb;
 }
 .icons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 30px;
-    width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 30px;
+  width: 20%;
 }

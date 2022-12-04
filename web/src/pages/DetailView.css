@@ -1,25 +1,25 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
 }
-.employeeRow{
-/* flex item 2 sesson */
-    flex: 2;
+.employeeRow {
+  /* flex item 2 sesson */
+  flex: 2;
 }
-.employeeDetail{
-    /* width 40% */
-    flex: 1;
+.employeeDetail {
+  /* width 40% */
+  flex: 1;
 }
 .row_employee {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #e0e0e0;
-    font-size: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
 }

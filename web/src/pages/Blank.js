@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
 const Blank = () => {
-  return (
-    <div>Blank</div>
-  )
-}
+  return <div>Blank</div>;
+};
 
-export default Blank
+export default Blank;

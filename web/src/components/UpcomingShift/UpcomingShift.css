@@ -1,39 +1,37 @@
 .date {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-.date .day{
-        font-size: 36px;
-        color: #EA6B6B;       
+.date .day {
+  font-size: 36px;
+  color: #ea6b6b;
 }
-.date .month{
-        font-size: 18px;
-        color: #EA6B6B;
+.date .month {
+  font-size: 18px;
+  color: #ea6b6b;
 }
 
 .myContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F5F5F5;
-    border-radius: 10px;
-    width: 80%;
-
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 80%;
 }
 .bar {
-    background-color: #EA6B6B;
-    width: 10px;
-    height: 100px;
-    border-radius: 10px;
-    border: #EA6B6B 1px solid;
+  background-color: #ea6b6b;
+  width: 10px;
+  height: 100px;
+  border-radius: 10px;
+  border: #ea6b6b 1px solid;
 }
 .shift__title {
-    font-size: 18px;
-    color: #EA6B6B;
-    font-weight: bold;
-    margin-left: 10px;
+  font-size: 18px;
+  color: #ea6b6b;
+  font-weight: bold;
+  margin-left: 10px;
 }
