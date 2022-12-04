@@ -26,7 +26,7 @@ export default function LogInScreen() {
 
   return (
     <View style={styles.root}>
-      <Text style={styles.title}>Welcome to UWC 2.0</Text>
+      <Text style={styles.title}>Welcome to UWC 2.0!</Text>
       <Image
         source={Logo}
         style={(styles.logo, { height: height * 0.2 })}
