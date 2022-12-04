@@ -4,7 +4,7 @@ import ViewMoreText from "react-native-view-more-text";
 
 import CustomButton from "../CustomButton/CustomButton";
 
-export default function TaskList({ date }) {
+export default function TaskList({ date, onPressCheckIn, onPressCheckout }) {
   const renderViewMore = (onPress) => {
     <Text style={styles.view} onPress={onPress}>
       View more
@@ -75,15 +75,9 @@ export default function TaskList({ date }) {
         </Text>
       </ViewMoreText>
 
-      {/* <Pressable onPress={() => {}} style={styles.button}>
-        <Text style={styles.Text}>Check in</Text>
-      </Pressable>
-      <Pressable onPress={() => {}} style={styles.button}>
-        <Text>Check out</Text>
-      </Pressable> */}
       <View style={styles.fixToRow}>
-        <CustomButton text="Check in" onPress={() => {}} type="GROUP" />
-        <CustomButton text="Check out" onPress={() => {}} type="GROUP" />
+        <CustomButton text="Check in" onPress={onPressCheckIn} type="GROUP" />
+        <CustomButton text="Check out" onPress={onPressCheckout} type="GROUP" />
       </View>
     </View>
   );
@@ -115,6 +109,9 @@ const styles = StyleSheet.create({
   },
   content: {
     lineHeight: 18,
+    padding: 30,
+    alignContent: "center",
+    alignItems: "center",
   },
   view: {
     color: "red",

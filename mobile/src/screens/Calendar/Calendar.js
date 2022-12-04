@@ -23,6 +23,15 @@ export default function JobTracker() {
     setSelectedDate(serviceDate);
     setMarkedDates(markedDates);
   };
+
+  const onPressCheckIn = () => {
+    console.log("Handle check in!");
+  };
+
+  const onPressCheckOut = () => {
+    console.log("Handle check out!");
+  };
+
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -56,7 +65,13 @@ export default function JobTracker() {
             getSelectedDayEvents(day.dateString);
           }}
         />
-        {taskVisible && <TaskList date={selectedDate} />}
+        {taskVisible && (
+          <TaskList
+            date={selectedDate}
+            onPressCheckIn={onPressCheckIn}
+            onPressCheckout={onPressCheckOut}
+          />
+        )}
       </View>
     </ScrollView>
   );
