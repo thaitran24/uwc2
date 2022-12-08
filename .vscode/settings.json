@@ -1,6 +1,6 @@
 {
     "git.autofetch": true,
-    "[javascript][javascriptreact][css]": {
+    "[javascript][javascriptreact][css][json][html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "emmet.includeLanguages": {
