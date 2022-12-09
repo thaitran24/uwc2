@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import "boxicons/css/boxicons.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./components/layout/AppLayout";
@@ -10,11 +9,13 @@ import SetVehicle from "./pages/SetVehicle";
 import SetMCP from "./pages/SetMCP";
 import SetSchedule from "./pages/SetSchedule";
 import Communication from "./pages/Communication";
+import ErrorPage from "./ErrorPage";
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AppLayout />}>
+        <Route path="/" element={<AppLayout />} errorElement={<ErrorPage />}>
           <Route index element={<Blank />} />
           <Route path="/detailView" element={<DetailView />} />
           <Route path="/overview" element={<Overview />} />
@@ -25,6 +26,9 @@ function App() {
           <Route path="/schedule" element={<SetSchedule />} />
           <Route path="/communication" element={<Communication />} />
         </Route>
+      </Routes>
+      <Routes>
+        <Route path="/login" element={<Blank />} />
       </Routes>
     </BrowserRouter>
   );
