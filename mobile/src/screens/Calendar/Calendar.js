@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Calendar } from "react-native-calendars";
 import moment from "moment";
 
 import TaskList from "../../components/TaskList/TaskList";
 
+import { AuthContext } from "../../navigation/AuthProvider";
+
 export default function JobTracker() {
+  const { setIsLogin } = useContext(AuthContext);
+
   const [selectedDate, setSelectedDate] = useState("");
   const [markedDates, setMarkedDates] = useState({});
 
@@ -30,12 +34,13 @@ export default function JobTracker() {
 
   const onPressCheckOut = () => {
     console.log("Handle check out!");
+    setIsLogin(false);
   };
 
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={{ alignItems: "center", padding: 10 }}>Search</Text>
+        {/* <Text style={{ alignItems: "center", padding: 10 }}>Search</Text> */}
         <Calendar
           style={styles.calendar}
           theme={{

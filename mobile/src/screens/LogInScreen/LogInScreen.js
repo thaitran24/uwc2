@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   Text,
   View,
@@ -10,14 +10,17 @@ import Logo from "../../../assets/images/team_logo.png";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
 
+import { AuthContext } from "../../navigation/AuthProvider";
+
 export default function LogInScreen() {
+  const { setIsLogin, login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { height } = useWindowDimensions();
 
   const onLogInPressed = () => {
-    console.warn("Log in");
+    setIsLogin(true);
   };
 
   const onForgotPassWord = () => {

@@ -11,11 +11,33 @@ export default function TaskList({ date, onPressCheckIn, onPressCheckout }) {
     </Text>;
   };
 
+  function padTo2Digits(num) {
+    return num.toString().padStart(2, "0");
+  }
+
+  function formatDate(date) {
+    return [
+      padTo2Digits(date.getDate()),
+      padTo2Digits(date.getMonth() + 1),
+      date.getFullYear(),
+    ].join(".");
+  }
+
   const renderViewLess = (onPress) => {
     <Text style={styles.view} onPress={onPress}>
       View less
     </Text>;
   };
+
+  const curr_day = formatDate(new Date());
+
+  let BUTTON_TYPE = "GROUP_DISABLE";
+  let BUTTON_STATUS = true;
+
+  if (curr_day == date) {
+    BUTTON_TYPE = "GROUP_ENABLE";
+    BUTTON_STATUS = false;
+  }
 
   return (
     <View style={styles.container}>
@@ -76,8 +98,18 @@ export default function TaskList({ date, onPressCheckIn, onPressCheckout }) {
       </ViewMoreText>
 
       <View style={styles.fixToRow}>
-        <CustomButton text="Check in" onPress={onPressCheckIn} type="GROUP" />
-        <CustomButton text="Check out" onPress={onPressCheckout} type="GROUP" />
+        <CustomButton
+          text="Check in"
+          disabled={BUTTON_STATUS}
+          onPress={onPressCheckIn}
+          type={BUTTON_TYPE}
+        />
+        <CustomButton
+          text="Check out"
+          disabled={BUTTON_STATUS}
+          onPress={onPressCheckout}
+          type={BUTTON_TYPE}
+        />
       </View>
     </View>
   );

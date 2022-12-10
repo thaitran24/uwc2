@@ -4,6 +4,7 @@ import React from "react";
 const CustomButton = ({
   onPress,
   text,
+  disabled = false,
   type = "PRIMARY",
   bgColor,
   fgColor,
@@ -16,6 +17,7 @@ const CustomButton = ({
         styles[`container_${type}`],
         bgColor ? { backgroundColor: bgColor } : {},
       ]}
+      disabled={disabled}
     >
       <Text
         style={[
@@ -48,9 +50,15 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 
-  container_GROUP: {
+  container_GROUP_ENABLE: {
     width: "45%",
     backgroundColor: "#FF8758",
+  },
+
+  container_GROUP_DISABLE: {
+    width: "45%",
+    disabled: true,
+    backgroundColor: "#686D76",
   },
 
   text: {
