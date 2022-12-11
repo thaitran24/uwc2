@@ -49,26 +49,38 @@
 }
 
 .li-1{
-    left: 280px;
+    left: 260px;
     bottom: 100px;
 }
 
 .li-2{
-    left: 278px;
+    left: 260px;
 
     bottom: 50px;
 }
 
-.li-collector{
-    left: 261px;
+.li-collector-1{
+    bottom: -20px;
+    left: 245px;
+}
+.li-collector-2{
+    left: 235px;
+    bottom: -60px;
+}
+.li-collector-3{
+    left: 220px;
+    bottom: -100px;
 }
 
 .li-3{
-    left: 238px;
+    left: 260px;
 
-    bottom: 0px;
+    bottom: -15px;
 }
-
+.li-4{
+    left: 230px;
+    bottom: -50px;
+}
 .task-list{
     position: relative;
     bottom: 150px;
