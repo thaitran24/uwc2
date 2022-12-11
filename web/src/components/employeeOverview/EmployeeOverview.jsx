@@ -11,9 +11,9 @@ export default function EmployeeOverview() {
   return (
     <TableContainer
       component={Paper}
-      sx={{ display: "flex", justifyContent: "center" }}
+      sx={{ display: "flex", alignContent: "center" }}
     >
-      <Table sx={{ minWidth: 200, maxWidth: 500 }} aria-label="simple table">
+      <Table sx={{ minWidth: "25vw", maxWidth: "50vw" }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Employee</TableCell>

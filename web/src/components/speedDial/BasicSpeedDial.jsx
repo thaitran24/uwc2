@@ -5,12 +5,12 @@ import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import HomeIcon from "@mui/icons-material/Home";
-import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import Forum from "@mui/icons-material/Forum";
 
 const actions = [
   { icon: <HomeIcon />, name: "Home" },
   {
-    icon: <ChatBubbleIcon />,
+    icon: <Forum />,
     name: "Chat",
   },
 ];

@@ -12,8 +12,6 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/inter": "^4.5.14",
-    "@fontsource/manrope": "^4.5.12",
-    "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.16",
     "@mui/material": "^5.10.17",
     "axios": "^1.2.1",

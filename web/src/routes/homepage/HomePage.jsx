@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import EmployeeOverview from "../../components/employeeOverview/EmployeeOverview";
+import MCPOverview from "../../components/mcpOverview/MCPOverview";
+import WeatherInfo from "../../components/weatherInfo/WeatherInfo";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -17,18 +19,17 @@ export default function HomePage() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
+          <WeatherInfo />
+        </Grid>
+        <Grid item xs={12} md={6}>
           <EmployeeOverview />
         </Grid>
-        <Grid item xs={6}>
-          <Item>xs=6</Item>
+        <Grid item xs={12} md={3}>
+          <MCPOverview />
+        </Grid>
+        <Grid item xs={12} md={3}>
           <EmployeeOverview />
-        </Grid>
-        <Grid item xs={3}>
-          <Item>xs=3</Item>
-        </Grid>
-        <Grid item xs={3}>
-          <Item>xs=3</Item>
         </Grid>
       </Grid>
     </Box>

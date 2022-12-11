@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import AccountCircle from "@mui/icons-material/AccountCircle";
+import Person from "@mui/icons-material/Person";
 import KeyIcon from "@mui/icons-material/Key";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -64,7 +64,7 @@ export default function LoginPage() {
               justifyContent: "center",
             }}
           >
-            <AccountCircle sx={{ color: "white", mr: 1, my: 0.5 }} />
+            <Person sx={{ color: "white", mr: 1, my: 0.5 }} />
             <TextField
               id="input-account"
               label="Account"
