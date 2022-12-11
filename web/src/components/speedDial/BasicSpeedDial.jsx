@@ -20,20 +20,11 @@ export default function BasicSpeedDial() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <Box
-      sx={{
-        height: 320,
-        // position: "fixed",
-        bottom: "10px",
-        right: "10px",
-        transform: "translateZ(0px)",
-        flexGrow: 1,
-      }}
-    >
+    <div>
       <Backdrop sx={{ color: "#fff" }} open={open}></Backdrop>
       <SpeedDial
         ariaLabel="Actions"
-        sx={{ position: "absolute", bottom: 16, right: 16 }}
+        sx={{ position: "fixed", bottom: 16, right: 16 }}
         icon={<SpeedDialIcon />}
         onClose={handleClose}
         onOpen={handleOpen}
@@ -49,6 +40,6 @@ export default function BasicSpeedDial() {
           />
         ))}
       </SpeedDial>
-    </Box>
+    </div>
   );
 }

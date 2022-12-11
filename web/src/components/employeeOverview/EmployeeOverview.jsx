@@ -9,7 +9,10 @@ import employee from "../../assets/employee.json";
 
 export default function EmployeeOverview() {
   return (
-    <TableContainer component={Paper} sx={{display: "flex", justifyContent: "center"}}>
+    <TableContainer
+      component={Paper}
+      sx={{ display: "flex", justifyContent: "center" }}
+    >
       <Table sx={{ minWidth: 200, maxWidth: 500 }} aria-label="simple table">
         <TableHead>
           <TableRow>

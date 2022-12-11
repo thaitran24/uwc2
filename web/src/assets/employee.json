@@ -1,43 +1,43 @@
 [
-    {
-      "id": 1,
-      "img": "https://picsum.photos/200",
-      "name": "John Doe",
-      "email": "johnDon@123.con",
-      "status": "online",
-      "vehicle": "Car",
-      "vehicle_id": "sdf",
-      "MCP": "MCP 1",
-      "active": true
-    },
-    {
-      "id": 2,
-      "img": "https://picsum.photos/200",
-      "name": "Bob Doe",
-      "status": "offline",
-      "vehicle": "Car",
-      "vehicle_id": "sdf",
-      "MCP": "MCP 1",
-      "active": false
-    },
-    {
-      "id": 6,
-      "img": "https://picsum.photos/200",
-      "name": "john Doe",
-      "status": "offline",
-      "vehicle": "Car",
-      "vehicle_id": "sdf",
-      "MCP": "MCP 1",
-      "active": false
-    },
-    {
-      "id": 3,
-      "img": "https://picsum.photos/200",
-      "name": "Robert Doe",
-      "status": "offline",
-      "vehicle": "Car",
-      "vehicle_id": "sdf",
-      "MCP": "MCP 1",
-      "active": false
-    }
-  ]
+  {
+    "id": 1,
+    "img": "https://picsum.photos/200",
+    "name": "John Doe",
+    "email": "johnDon@123.con",
+    "status": "online",
+    "vehicle": "Car",
+    "vehicle_id": "sdf",
+    "MCP": "MCP 1",
+    "active": true
+  },
+  {
+    "id": 2,
+    "img": "https://picsum.photos/200",
+    "name": "Bob Doe",
+    "status": "offline",
+    "vehicle": "Car",
+    "vehicle_id": "sdf",
+    "MCP": "MCP 1",
+    "active": false
+  },
+  {
+    "id": 6,
+    "img": "https://picsum.photos/200",
+    "name": "john Doe",
+    "status": "offline",
+    "vehicle": "Car",
+    "vehicle_id": "sdf",
+    "MCP": "MCP 1",
+    "active": false
+  },
+  {
+    "id": 3,
+    "img": "https://picsum.photos/200",
+    "name": "Robert Doe",
+    "status": "offline",
+    "vehicle": "Car",
+    "vehicle_id": "sdf",
+    "MCP": "MCP 1",
+    "active": false
+  }
+]

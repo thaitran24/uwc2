@@ -18,7 +18,7 @@ export default function HomePage() {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         <Grid item xs={6}>
-            <EmployeeOverview />
+          <EmployeeOverview />
         </Grid>
         <Grid item xs={6}>
           <Item>xs=6</Item>
