@@ -15,7 +15,7 @@ const actions = [
   },
 ];
 
-export default function HomeButton() {
+export default function BasicSpeedDial() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -30,7 +30,7 @@ export default function HomeButton() {
         flexGrow: 1,
       }}
     >
-      <Backdrop open={open} />
+      <Backdrop sx={{ color: "#fff" }} open={open}></Backdrop>
       <SpeedDial
         ariaLabel="Actions"
         sx={{ position: "absolute", bottom: 16, right: 16 }}

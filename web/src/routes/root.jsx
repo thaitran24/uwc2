@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import HomeButton from "../components/homebutton/HomeButton";
+import BasicSpeedDial from "../components/speeddial/BasicSpeedDial";
 
 export default function Root() {
   return (
@@ -7,7 +7,7 @@ export default function Root() {
       <div id="detail">
         <Outlet />
       </div>
-      <HomeButton />
+      <BasicSpeedDial />
     </>
   );
 }
