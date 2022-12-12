@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import BasicSpeedDial from "../components/speedDial/BasicSpeedDial";
 import Topbar from "../components/topbar/Topbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Container from "@mui/system/Container";
 
 const theme = createTheme({
   typography: {
@@ -15,11 +16,14 @@ export default function Root() {
   return (
     <ThemeProvider theme={theme}>
       <Topbar />
-      <div id="detail" style={{
-        paddingBottom: '24px',
-      }}>
+      <Container
+        maxWidth="xl"
+        sx={{
+          paddingTop: "2vh",
+        }}
+      >
         <Outlet />
-      </div>
+      </Container>
       <BasicSpeedDial />
     </ThemeProvider>
   );

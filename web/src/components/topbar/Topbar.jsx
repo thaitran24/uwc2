@@ -9,7 +9,7 @@ import Logout from "@mui/icons-material/Logout";
 import Forum from "@mui/icons-material/Forum";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
-import { display } from "@mui/system";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Topbar() {
   return (
@@ -25,6 +25,8 @@ export default function Topbar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            LinkComponent={RouterLink}
+            to="/home"
           >
             <img src={Logo} alt="logo" style={{ width: "56px" }} />
           </IconButton>
@@ -36,19 +38,26 @@ export default function Topbar() {
           >
             UWC 2.0
           </Typography>
-          <Box sx={{ display: "flex", flexDirection: "row", p: 2, alignItems: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              p: 2,
+              alignItems: "center",
+            }}
+          >
             <Avatar src="https://picsum.photos/200" />
-            <Stack spacing={0.2} sx={{paddingLeft: "10px"}}>
+            <Stack spacing={0.2} sx={{ paddingLeft: "10px" }}>
               <Typography fontWeight={700}>Michael Scott</Typography>
               <Typography variant="body2" color="text.secondary">
                 Back Officer
               </Typography>
             </Stack>
           </Box>
-          <Button color="inherit">
+          <Button color="inherit" LinkComponent={RouterLink} to="/chat">
             <Forum />
           </Button>
-          <Button color="inherit">
+          <Button color="inherit" LinkComponent={RouterLink} to="/login">
             <Logout />
           </Button>
         </Toolbar>

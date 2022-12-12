@@ -11,7 +11,7 @@ body {
   justify-content: center;
   width: 100%;
 }
-*{
+* {
   -ms-overflow-style: none;
 }
 ::-webkit-scrollbar {

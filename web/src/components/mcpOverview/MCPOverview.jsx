@@ -34,10 +34,15 @@ export default function MCPOverview() {
   };
 
   return (
-    <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <h2>MCP</h2>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
+    <Paper
+      sx={{
+        overflow: "hidden",
+        backgroundColor: "#E4FCF6",
+        borderRadius: "30px",
+      }}
+    >
+      <TableContainer sx={{ height: "32vh" }}>
+        <Table aria-label="sticky table">
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -74,13 +79,14 @@ export default function MCPOverview() {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[5,10, 25, 100]}
+        rowsPerPageOptions={[5, 10, 25, 100]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        labelDisplayedRows={({ from, to, count }) => ""}
       />
     </Paper>
   );

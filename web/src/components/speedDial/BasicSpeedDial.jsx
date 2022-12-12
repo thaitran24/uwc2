@@ -1,17 +1,35 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
 import Backdrop from "@mui/material/Backdrop";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import HomeIcon from "@mui/icons-material/Home";
 import Forum from "@mui/icons-material/Forum";
+import { Link as RouterLink } from "react-router-dom";
+import Link from "@mui/material/Link";
+import Box from "@mui/material/Box";
+
+const makeLink = (to, children) => (
+  <Link
+    component={RouterLink}
+    to={to}
+    sx={{
+      color: "inherit",
+      textDecoration: "none",
+      alignItems: "center",
+      display: "flex",
+    }}
+  >
+    {children}
+  </Link>
+);
 
 const actions = [
-  { icon: <HomeIcon />, name: "Home" },
+  { icon: <HomeIcon />, name: "Home", path: "/home" },
   {
     icon: <Forum />,
     name: "Chat",
+    path: "/chat",
   },
 ];
 
@@ -20,7 +38,7 @@ export default function BasicSpeedDial() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
-    <div>
+    <Box>
       <Backdrop sx={{ color: "#fff" }} open={open}></Backdrop>
       <SpeedDial
         ariaLabel="Actions"
@@ -33,13 +51,13 @@ export default function BasicSpeedDial() {
         {actions.map((action) => (
           <SpeedDialAction
             key={action.name}
-            icon={action.icon}
+            icon={makeLink(action.path, action.icon)}
             tooltipTitle={action.name}
             tooltipOpen
             onClick={handleClose}
-          />
+          ></SpeedDialAction>
         ))}
       </SpeedDial>
-    </div>
+    </Box>
   );
 }

@@ -1,9 +1,48 @@
-export default function WeatherInfo() {
-    return (
-        <div>
-            <h2>Weather Info</h2>
-            <img height={'100px'} src="https://images.ctfassets.net/hrltx12pl8hq/1DauLWsEwcnLf4NpCUMxxZ/85290d98239ff0bbee9803932249c444/weather-shutterstock_1716559711.jpg?fit=fill&w=480&h=320" alt="" />
-        </div>
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import Container from "@mui/system/Container";
+import Box from "@mui/material/Box";
+import Cloud from "../../assets/cloud.svg";
 
-    )
+export default function WeatherInfo() {
+  return (
+    <Container
+      fixed
+      sx={{
+        height: "38vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#E4FCF6",
+        borderRadius: "30px",
+      }}
+      component={Paper}
+    >
+      <Typography
+        variant="h5"
+        component="div"
+        sx={{ p: 1, textAlign: "center", fontWeight: 700 }}
+      >
+        Good&nbsp;Morning
+      </Typography>
+      <img
+        src={Cloud}
+        alt="cloud"
+        style={{
+          width: "100px",
+        }}
+      />
+      <Typography
+        variant="h2"
+        component="div"
+        sx={{ p: 1, textAlign: "center", fontWeight: 700 }}
+      >
+        20&deg;C
+      </Typography>
+      <Typography variant="h6" component="div" sx={{ textAlign: "center" }}>
+        Cloudy
+      </Typography>
+    </Container>
+  );
 }
