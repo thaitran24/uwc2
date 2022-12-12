@@ -13,7 +13,7 @@ import { Link as RouterLink } from "react-router-dom";
 
 export default function Topbar() {
   return (
-    <Box sx={{ flexGrow: 1, height: "10vh" }}>
+    <Box sx={{ flexGrow: 1, height: "64px" }}>
       <AppBar
         position="static"
         sx={{ backgroundColor: "white", color: "black", boxShadow: "none" }}

@@ -9,9 +9,9 @@ import Box from "@mui/material/Box";
 export default function HomePage() {
   return (
     <Box>
-      <Grid container spacing={1} disableEqualOverflow>
+      <Grid container spacing={1}>
         <Grid item xs={12} md={6}>
-          <Grid container spacing={1} disableEqualOverflow>
+          <Grid container spacing={1}>
             <Grid item xs={12}>
               <WeatherInfo />
             </Grid>

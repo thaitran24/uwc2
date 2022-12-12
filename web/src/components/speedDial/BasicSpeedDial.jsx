@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Backdrop from "@mui/material/Backdrop";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
@@ -39,7 +38,6 @@ export default function BasicSpeedDial() {
   const handleClose = () => setOpen(false);
   return (
     <Box>
-      <Backdrop sx={{ color: "#fff" }} open={open}></Backdrop>
       <SpeedDial
         ariaLabel="Actions"
         sx={{ position: "fixed", bottom: 16, right: 16 }}

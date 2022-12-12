@@ -42,7 +42,7 @@ export default function MCPOverview() {
       }}
     >
       <TableContainer sx={{ height: "32vh" }}>
-        <Table aria-label="sticky table">
+        <Table>
           <TableHead>
             <TableRow>
               {columns.map((column) => (

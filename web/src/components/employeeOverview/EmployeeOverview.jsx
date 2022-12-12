@@ -30,14 +30,8 @@ export default function EmployeeOverview() {
       }}
     >
       <TableContainer sx={{ height: "72vh" }}>
-        <Table aria-label="simple table">
-          <TableHead
-            sx={{
-              "&.Mui-selected": {
-                outline: "none",
-              },
-            }}
-          >
+        <Table>
+          <TableHead>
             <TableRow>
               <TableCell>Employee</TableCell>
               <TableCell align="right">Status</TableCell>
