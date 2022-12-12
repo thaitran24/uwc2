@@ -7,17 +7,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import rows from "../../assets/mcp.json";
+import rows from "../../assets/vehicle.json";
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 70 },
-  { id: "address", label: "Address", minWidth: 100 },
-  {
-    id: "status",
-    label: "Status",
-    minWidth: 70,
-    align: "right",
-  },
+  { id: "id", label: "ID", minWidth: 50 },
+  { id: "type", label: "Type", minWidth: 100 },
+  {id:"consumption", label:"consumption", minWidth: 50},
 ];
 
 export default function MCPOverview() {
@@ -35,7 +30,7 @@ export default function MCPOverview() {
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <h2>MCP</h2>
+      <h2>Vehicle</h2>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
