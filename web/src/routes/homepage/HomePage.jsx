@@ -13,7 +13,7 @@ export default function HomePage() {
         <Grid item xs={12} md={6}>
           <Grid container spacing={1}>
             <Grid item xs={12}>
-              <WeatherInfo />
+              <EmployeeOverview />
             </Grid>
             <Grid item xs={12} md={6}>
               <MCPOverview />
@@ -24,7 +24,7 @@ export default function HomePage() {
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
-          <EmployeeOverview />
+          <WeatherInfo />
         </Grid>
       </Grid>
     </Box>

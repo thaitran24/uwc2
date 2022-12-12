@@ -16,7 +16,7 @@ export default function Topbar() {
     <Box sx={{ flexGrow: 1, height: "64px" }}>
       <AppBar
         position="static"
-        sx={{ backgroundColor: "white", color: "black", boxShadow: "none" }}
+        sx={{ backgroundColor: "#e5e5e5", color: "black", boxShadow: "none" }}
       >
         <Toolbar>
           <IconButton

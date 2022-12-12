@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import rows from "../../assets/employee.json";
 
 export default function EmployeeOverview() {
@@ -25,15 +26,21 @@ export default function EmployeeOverview() {
     <Paper
       sx={{
         overflow: "hidden",
-        backgroundColor: "#E4FCF6",
-        borderRadius: "30px",
+        borderRadius: "15px",
       }}
     >
-      <TableContainer sx={{ height: "72vh" }}>
-        <Table>
+      <Typography
+        variant="h5"
+        component="div"
+        sx={{ fontWeight: 700, paddingTop: "8px", paddingLeft: "12px" }}
+      >
+        Employee
+      </Typography>
+      <TableContainer sx={{ height: "30vh" }}>
+        <Table stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell>Employee</TableCell>
+              <TableCell>Name</TableCell>
               <TableCell align="right">Status</TableCell>
               <TableCell align="right">Vehicle Type</TableCell>
               <TableCell align="right">Vehicle ID</TableCell>
@@ -68,7 +75,7 @@ export default function EmployeeOverview() {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        labelDisplayedRows={({}) => ""}
+        labelDisplayedRows={({ from, to }) => `${from}–${to}`}
       />
     </Paper>
   );

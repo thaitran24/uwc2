@@ -9,8 +9,7 @@ export default function WeatherInfo() {
       maxWidth="xl"
       sx={{
         overflow: "hidden",
-        backgroundColor: "#E4FCF6",
-        borderRadius: "30px",
+        borderRadius: "15px",
       }}
       component={Paper}
     >
@@ -20,9 +19,16 @@ export default function WeatherInfo() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          height: "38vh",
+          height: "84vh",
         }}
       >
+        <Typography
+          variant="h4"
+          component="div"
+          sx={{ textAlign: "center", fontWeight: 700 }}
+        >
+          06:00 AM
+        </Typography>
         <Typography
           variant="h5"
           component="div"

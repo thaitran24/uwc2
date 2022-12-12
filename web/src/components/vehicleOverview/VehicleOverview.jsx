@@ -7,12 +7,13 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import Typography from "@mui/material/Typography";
 import rows from "../../assets/vehicle.json";
 
 const columns = [
   { id: "id", label: "ID", minWidth: 50 },
   { id: "type", label: "Type", minWidth: 100 },
-  { id: "consumption", label: "Consumption", minWidth: 50 },
+  { id: "consumption", label: "Consumption", minWidth: 50, align: "right" },
 ];
 
 export default function MCPOverview() {
@@ -32,12 +33,18 @@ export default function MCPOverview() {
     <Paper
       sx={{
         overflow: "hidden",
-        backgroundColor: "#E4FCF6",
-        borderRadius: "30px",
+        borderRadius: "10px",
       }}
     >
-      <TableContainer sx={{ height: "32vh" }}>
-        <Table>
+      <Typography
+        variant="h5"
+        component="div"
+        sx={{ fontWeight: 700, paddingTop: "8px", paddingLeft: "12px" }}
+      >
+        Vehicles
+      </Typography>
+      <TableContainer sx={{ height: "28vh" }}>
+        <Table stickyHeader>
           <TableHead>
             <TableRow>
               {columns.map((column) => (
@@ -81,7 +88,7 @@ export default function MCPOverview() {
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
-        labelDisplayedRows={({}) => ""}
+        labelDisplayedRows={({ from, to }) => `${from}–${to}`}
       />
     </Paper>
   );
