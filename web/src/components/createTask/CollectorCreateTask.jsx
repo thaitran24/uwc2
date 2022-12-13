@@ -1,5 +1,12 @@
-import { Autocomplete, Box, Button, Modal, TextField, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import {
+  Autocomplete,
+  Box,
+  Button,
+  Modal,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
 
 const CreateTask = (props) => {
   const [open, setOpen] = useState(false);
@@ -155,9 +162,8 @@ const CreateTask = (props) => {
       >
         CONFIRM
       </Button>
-
     </div>
-  )
-}
+  );
+};
 
-export default CreateTask
+export default CreateTask;

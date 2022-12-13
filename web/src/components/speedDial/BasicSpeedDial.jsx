@@ -24,7 +24,7 @@ const makeLink = (to, children) => (
 );
 
 const actions = [
-  { icon: <HomeIcon />, name: "Home", path: "/home" },
+  { icon: <HomeIcon />, name: "Home", path: "/" },
   {
     icon: <Forum />,
     name: "Chat",

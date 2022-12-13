@@ -18,9 +18,16 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    // TODO: Remove this when we have a proper login page
+    loader: () => {
+      // Temporary redirect to login page
+      // return redirect("/login");
+      // For UI development purposes, return null
+      return null;
+    },
     children: [
       {
-        path: "/home",
+        index: true,
         element: <HomePage />,
       },
       {

@@ -1,25 +1,18 @@
-import Container from "@mui/material/Container";
-import AddCircle from "@mui/icons-material/AddCircle";
-import Typography from "@mui/material/Typography";
+import EmployeeOverview from "../../components/employeeOverview/EmployeeOverview";
+import MCPOverview from "../../components/mcpOverview/MCPOverview";
+import VehicleOverview from "../../components/vehicleOverview/VehicleOverview";
+import WeatherInfo from "../../components/weatherInfo/WeatherInfo";
+import DefaultGrid from "../../components/defaultGrid/DefaultGrid";
 
-export default function Chat() {
+export default function HomePage() {
   return (
-    <Container
-      maxWidth="xl"
-      sx={{
-        bgcolor: "#E4FCF6",
-        borderRadius: "30px",
-        height: "85vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <AddCircle sx={{ fontSize: 128 }} />
-      <Typography variant="h4" sx={{ color: "black", textAlign: "center" }}>
-        Start <br /> a <br /> conversation
-      </Typography>
-    </Container>
+    <DefaultGrid
+      componentsList={[
+        <EmployeeOverview />,
+        <MCPOverview />,
+        <VehicleOverview />,
+        <WeatherInfo />,
+      ]}
+    />
   );
 }

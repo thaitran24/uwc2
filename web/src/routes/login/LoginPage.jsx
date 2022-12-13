@@ -6,6 +6,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Link as RouterLink } from "react-router-dom"; // TODO: remove this import
 import Wave from "../../assets/wave.svg";
 import Logo from "../../assets/logo-green.svg";
 
@@ -95,9 +96,11 @@ export default function LoginPage() {
               alignContent: "center",
             }}
           >
-            <FormControlLabel control={<Checkbox />} label="Remember me" sx={
-              {color: "#093545"}
-            } />
+            <FormControlLabel
+              control={<Checkbox />}
+              label="Remember me"
+              sx={{ color: "#093545" }}
+            />
             <Button variant="text">Reset password</Button>
           </Box>
           <Box
@@ -116,6 +119,8 @@ export default function LoginPage() {
                 backgroundColor: "#20DF7F",
                 width: "20vw",
               }}
+              component={RouterLink}
+              to="/"
             >
               Login
             </Button>

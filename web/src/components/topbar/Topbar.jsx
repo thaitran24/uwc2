@@ -26,7 +26,7 @@ export default function Topbar() {
             aria-label="menu"
             sx={{ mr: 2 }}
             LinkComponent={RouterLink}
-            to="/home"
+            to="/"
           >
             <img src={Logo} alt="logo" style={{ width: "56px" }} />
           </IconButton>

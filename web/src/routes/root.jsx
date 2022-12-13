@@ -20,6 +20,7 @@ export default function Root() {
         maxWidth="xl"
         sx={{
           paddingTop: "2vh",
+          width: "100vw",
         }}
       >
         <Outlet />

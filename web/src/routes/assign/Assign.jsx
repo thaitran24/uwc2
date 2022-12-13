@@ -2,7 +2,7 @@ import "./Assign.css";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Unstable_Grid2";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 import JanitorTaskPart from "../../components/TaskPart/JanitorTaskPart";
 import CollectorTaskPart from "../../components/TaskPart/CollectorTaskPart";
@@ -39,11 +39,9 @@ export default function Assign() {
                 <JanitorTaskPart />
               </div>
             </Grid>
-
           </div>
         </Grid>
       </Grid>
     </Box>
-
   );
 }
