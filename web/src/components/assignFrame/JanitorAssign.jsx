@@ -1,24 +1,45 @@
+import { EmployeeInfo } from "./AssignUtils";
+import Paper from "@mui/material/Paper";
 import { Autocomplete, Button, TextField } from "@mui/material";
-import React from "react";
+import Grid from "@mui/material/Grid";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useState } from "react";
 
-const CreateTask = (props) => {
-  const MCPlist = [
-    { label: "KTX Khu A" },
-    { label: "Phòng 1112" },
-    { label: "Nhà hát G" },
-    { label: "Bệnh viện X" },
-    { label: "Quận 8" },
-    { label: "Nhà hát G" },
-  ];
+const MCPlist = [
+  { label: "KTX Khu A" },
+  { label: "Phòng 1112" },
+  { label: "Nhà hát G" },
+  { label: "Bệnh viện X" },
+  { label: "Quận 8" },
+  { label: "Nhà hát G" },
+];
 
-  const Vehiclelist = [
-    { label: "Toyota ID 400" },
-    { label: "Toyota ID 401" },
-    { label: "Toyota ID 402" },
-    { label: "Toyota ID 403" },
-    { label: "Toyota ID 404" },
-    { label: "Toyota ID 405" },
-  ];
+const Vehiclelist = [
+  { label: "Toyota ID 400" },
+  { label: "Toyota ID 401" },
+  { label: "Toyota ID 402" },
+  { label: "Toyota ID 403" },
+  { label: "Toyota ID 404" },
+  { label: "Toyota ID 405" },
+];
+
+export function JanitorTaskList({ date, time, mcp, task }) {
+  return (
+    <div className="task-part">
+      <p>{date}</p>
+      <p>{time}</p>
+
+      <p>MCP: {mcp}</p>
+      <p>{task}</p>
+      <IconButton aria-label="delete">
+        <DeleteIcon />
+      </IconButton>
+    </div>
+  );
+}
+
+export function JanitorAssignBox({ info }) {
   return (
     <div>
       <h1 className="task-title">Task Assigment</h1>
@@ -97,6 +118,31 @@ const CreateTask = (props) => {
       </Button>
     </div>
   );
-};
+}
 
-export default CreateTask;
+export default function JanitorAssign({ info }) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  return (
+    <Paper
+      sx={{
+        overflow: "hidden",
+        borderRadius: "15px",
+        height: "100%",
+      }}
+    >
+      <Grid container spacing={0}>
+        <Grid item xs={12} md={4}>
+          <EmployeeInfo employee={info} />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <JanitorAssignBox onOpen={handleOpen} onClose={handleClose} />
+        </Grid>
+        <Grid item xs={12}>
+          <JanitorTaskList />
+        </Grid>
+      </Grid>
+    </Paper>
+  );
+}

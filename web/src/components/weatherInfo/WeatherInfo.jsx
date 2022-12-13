@@ -10,7 +10,6 @@ export default function WeatherInfo() {
         overflow: "hidden",
         borderRadius: "15px",
       }}
-      component={Paper}
     >
       <Container
         maxWidth="xl"
