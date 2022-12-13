@@ -6,7 +6,6 @@ import Cloud from "../../assets/cloud.svg";
 export default function WeatherInfo() {
   return (
     <Paper
-      maxWidth="xl"
       sx={{
         overflow: "hidden",
         borderRadius: "15px",
@@ -14,6 +13,7 @@ export default function WeatherInfo() {
       component={Paper}
     >
       <Container
+        maxWidth="xl"
         sx={{
           display: "flex",
           flexDirection: "column",

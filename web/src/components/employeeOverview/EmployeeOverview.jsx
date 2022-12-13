@@ -40,11 +40,11 @@ export default function EmployeeOverview() {
         <Table stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
+              <TableCell>ID</TableCell>
+              <TableCell align="right">Name</TableCell>
+              <TableCell align="right">Role</TableCell>
               <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Vehicle Type</TableCell>
-              <TableCell align="right">Vehicle ID</TableCell>
-              <TableCell align="right">MCP Area/List</TableCell>
+              <TableCell align="right">Workplace</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -52,16 +52,18 @@ export default function EmployeeOverview() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => (
                 <TableRow
-                  key={row.name}
+                  key={row.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {row.name}
+                    {row.id}
                   </TableCell>
+                  <TableCell align="right">{row.name}</TableCell>
+                  <TableCell align="right">{row.role}</TableCell>
                   <TableCell align="right">{row.status}</TableCell>
-                  <TableCell align="right">{row.vehicle.type}</TableCell>
-                  <TableCell align="right">{row.vehicle.ID}</TableCell>
-                  <TableCell align="right">{row.mcp}</TableCell>
+                  <TableCell align="right">
+                    {row.workplace.replace("Workplace ", "")}
+                  </TableCell>
                 </TableRow>
               ))}
           </TableBody>
