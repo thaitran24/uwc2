@@ -66,7 +66,7 @@ export default function MCPOverview() {
                   <TableRow hover role={undefined} tabIndex={-1} key={row.id}>
                     <TableCell>{row.id}</TableCell>
                     <TableCell>{row.type}</TableCell>
-                    <TableCell>{row.consumption}</TableCell>
+                    <TableCell align="right">{row.consumption}</TableCell>
                   </TableRow>
                 );
               })}
