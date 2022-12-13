@@ -1,129 +1,146 @@
-import { EmployeeInfo } from "./AssignUtils";
-import Paper from "@mui/material/Paper";
-import { Autocomplete, Button, TextField } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useState } from "react";
+import Autocomplete from "@mui/material/Autocomplete";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Checkbox from "@mui/material/Checkbox";
+import Container from "@mui/material/Container";
+import FormControl from "@mui/material/FormControl";
+import IconButton from "@mui/material/IconButton";
+import InputLabel from "@mui/material/InputLabel";
+import ListItemText from "@mui/material/ListItemText";
+import MenuItem from "@mui/material/MenuItem";
+import Paper from "@mui/material/Paper";
+import Select from "@mui/material/Select";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Unstable_Grid2";
+import { createContext, useContext, useState } from "react";
+import mcpList from "../../assets/mcp.json";
+import { DetailTaskBox, EmployeeInfo } from "./AssignUtils";
 
-const MCPlist = [
-  { label: "KTX Khu A" },
-  { label: "Phòng 1112" },
-  { label: "Nhà hát G" },
-  { label: "Bệnh viện X" },
-  { label: "Quận 8" },
-  { label: "Nhà hát G" },
-];
+const MCPJanitorContext = createContext([]);
 
-const Vehiclelist = [
-  { label: "Toyota ID 400" },
-  { label: "Toyota ID 401" },
-  { label: "Toyota ID 402" },
-  { label: "Toyota ID 403" },
-  { label: "Toyota ID 404" },
-  { label: "Toyota ID 405" },
-];
-
-export function JanitorTaskList({ date, time, mcp, task }) {
+function MCPMultipleSelect() {
+  const mcpState = useContext(MCPJanitorContext);
   return (
-    <div className="task-part">
-      <p>{date}</p>
-      <p>{time}</p>
-
-      <p>MCP: {mcp}</p>
-      <p>{task}</p>
-      <IconButton aria-label="delete">
-        <DeleteIcon />
-      </IconButton>
-    </div>
+    <FormControl>
+      <InputLabel>MCP</InputLabel>
+      <Select
+        multiple
+        value={mcpState[0]}
+        label="MCP"
+        onChange={mcpState[1]}
+        renderValue={(selected) => selected.map((x) => x.address).join(", ")}
+      >
+        {mcpList.map((mcp) => (
+          <MenuItem
+            key={mcp.locationInfo.lat + mcp.locationInfo.long}
+            value={mcp}
+          >
+            <Checkbox
+              checked={mcpState[0].findIndex((item) => item.id === mcp.id) >= 0}
+            />
+            <ListItemText primary={mcp.address} />
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 
-export function JanitorAssignBox({ info }) {
+function JanitorTaskList(props) {
   return (
-    <div>
-      <h1 className="task-title">Task Assigment</h1>
-      <ul>
-        <li className="task-li li-1">Date:</li>
-        <li className="task-li li-2">Time:</li>
-        <li className="task-li li-3">MCP: </li>
-        <li className="task-li li-4">Description: </li>
-      </ul>
-      <TextField
-        className="date"
-        type="date"
-        defaultValue="2022-12-11"
-        sx={{
-          width: 313,
-          height: 30,
-          position: "relative",
-          left: 320,
-          bottom: 175,
-        }}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-      <TextField
-        id="time"
-        label="Start"
-        type="time"
-        defaultValue="07:30"
-        InputLabelProps={{
-          shrink: true,
-        }}
-        inputProps={{
-          step: 300, // 5 min
-        }}
-        sx={{ positopm: "relative", width: 140, bottom: 105, left: 10 }}
-      />
-      <TextField
-        id="time"
-        label="Finish"
-        type="time"
-        defaultValue="07:30"
-        InputLabelProps={{
-          shrink: true,
-        }}
-        inputProps={{
-          step: 300, // 5 min
-        }}
-        sx={{ positopm: "relative", width: 140, bottom: 105, left: 15 }}
-      />
-      <Autocomplete
-        disablePortal
-        className="setMCP"
-        options={MCPlist}
-        sx={{
-          position: "relative",
-          width: 313,
-          left: 321,
-          bottom: 90,
-          padding: 0,
-        }}
-        renderInput={(params) => <TextField {...params} label="Select MCP" />}
-      />
-      <TextField
-        className="description"
-        label="Description"
-        sx={{ position: "relative", width: 313, left: 321, bottom: 80 }}
-        variant="outlined"
-      />
-      <Button
-        variant="contained"
-        color="success"
-        sx={{ position: "relative", left: 110, bottom: 10 }}
-      >
-        CONFIRM
+    <Container>
+      <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+        Task List
+      </Typography>
+      <DetailTaskBox>
+        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+          Task List
+        </Typography>
+      </DetailTaskBox>
+    </Container>
+  )
+}
+
+function JanitorAssignBox(props) {
+  return (
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        rowGap: "1rem",
+      }}
+    >
+      <Typography variant="h5" gutterBottom sx={{ textAlign: "center", paddingTop: "4vh" }}>
+        Task Assignment
+      </Typography>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <Box sx={{ display: "flex" }}>
+          <TextField
+            label="Date"
+            type="date"
+            defaultValue="2022-12-11"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            margin="dense"
+          />
+          <TextField
+            label="Start"
+            type="time"
+            defaultValue="07:30"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 300,
+            }}
+            margin="dense"
+          />
+          <TextField
+            label="Finish"
+            type="time"
+            defaultValue="07:30"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 300,
+            }}
+            margin="dense"
+          />
+        </Box>
+      </Box>
+      <MCPMultipleSelect />
+      <TextField label="Description" multiline rows={1} variant="outlined" />
+      <Button variant="contained" color="success">
+        Confirm
       </Button>
-    </div>
+    </Container>
   );
 }
 
 export default function JanitorAssign({ info }) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [mcps, setMCPs] = useState([]);
+  const handleChangeMCPs = (event) => {
+    const {
+      target: { value },
+    } = event;
+    console.log(value);
+
+    let duplicateRemoved = [];
+
+    value.forEach((item) => {
+      if (duplicateRemoved.findIndex((o) => o.id === item.id) >= 0) {
+        duplicateRemoved = duplicateRemoved.filter((x) => x.id === item.id);
+      } else {
+        duplicateRemoved.push(item);
+      }
+    });
+
+    setMCPs(duplicateRemoved);
+  };
   return (
     <Paper
       sx={{
@@ -137,7 +154,9 @@ export default function JanitorAssign({ info }) {
           <EmployeeInfo employee={info} />
         </Grid>
         <Grid item xs={12} md={8}>
-          <JanitorAssignBox onOpen={handleOpen} onClose={handleClose} />
+          <MCPJanitorContext.Provider value={[mcps, handleChangeMCPs]}>
+            <JanitorAssignBox />
+          </MCPJanitorContext.Provider>
         </Grid>
         <Grid item xs={12}>
           <JanitorTaskList />

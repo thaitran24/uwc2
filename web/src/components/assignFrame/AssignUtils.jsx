@@ -12,6 +12,22 @@ function convertDate(date) {
   return `${day}/${month}/${year}`;
 }
 
+export function DetailTaskBox({ children }) {
+  return (
+    <Container
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "2vw",
+        rowGap: "1rem",
+        backgroundColor: "#DEEDE5"
+      }}
+    >
+      {children}
+    </Container>
+  );
+}
+
 export function EmployeeInfo({ employee }) {
   return (
     <Container
