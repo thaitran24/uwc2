@@ -88,7 +88,6 @@ export default function LoginPage() {
             />
           </Box>
           <Box
-            fixed
             sx={{
               padding: "2vh",
               display: "flex",

@@ -5,8 +5,39 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
-import { DetailTaskBox, EmployeeInfo, MCPMultipleSelect } from "./AssignUtils";
+import { EmployeeInfo, MCPMultipleSelect } from "./AssignUtils";
+
+// TODO: Replace with real data
+const janitorTask = [
+  {
+    id: 0,
+    date: "2022-12-11",
+    MCP: "MCP 1",
+  },
+  {
+    id: 1,
+    date: "2022-12-11",
+    MCP: "MCP 2",
+  },
+  {
+    id: 2,
+    date: "2022-12-11",
+    MCP: "MCP 3",
+  },
+  {
+    id: 3,
+    date: "2022-12-11",
+    MCP: "MCP 4",
+  },
+  {
+    id: 4,
+    date: "2022-12-11",
+    MCP: "MCP 5",
+  },
+];
 
 function JanitorTaskList(props) {
   return (
@@ -14,11 +45,38 @@ function JanitorTaskList(props) {
       <Typography variant="h5" gutterBottom sx={{ textAlign: "center" }}>
         Task List
       </Typography>
-      <DetailTaskBox>
-        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
-          Task List
-        </Typography>
-      </DetailTaskBox>
+      <Container sx={{ height: "25vh", overflow: "auto" }}>
+        {janitorTask.map((task) => {
+          return (
+            <Box
+              sx={{
+                paddingTop: "1vh",
+                backgroundColor: "#DEEDE5",
+                borderRadius: "10px",
+              }}
+              key={task.id}
+            >
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ textAlign: "center" }}
+              >
+                {task.date}
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ textAlign: "center" }}
+              >
+                {task.MCP}
+              </Typography>
+              <IconButton aria-label="delete" size="small">
+                <DeleteIcon fontSize="inherit" />
+              </IconButton>
+            </Box>
+          );
+        })}
+      </Container>
     </Container>
   );
 }

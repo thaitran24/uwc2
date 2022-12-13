@@ -66,20 +66,6 @@ function convertDate(date) {
   return `${day}/${month}/${year}`;
 }
 
-export function DetailTaskBox({ children }) {
-  return (
-    <Box
-      sx={{
-        paddingTop: "1vh",
-        backgroundColor: "#DEEDE5",
-        borderRadius: "10px",
-      }}
-    >
-      {children}
-    </Box>
-  );
-}
-
 export function EmployeeInfo({ employee }) {
   return (
     <Container

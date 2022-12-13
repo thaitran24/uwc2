@@ -8,7 +8,43 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import vehicleList from "../../assets/vehicle.json";
-import { DetailTaskBox, EmployeeInfo, MCPMultipleSelect } from "./AssignUtils";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { EmployeeInfo, MCPMultipleSelect } from "./AssignUtils";
+
+// TODO: Replace with real data
+const collectorTask = [
+  {
+    id: 0,
+    date: "2022-12-11",
+    vehicle: "Vehicle 1",
+    route: "Route 1",
+  },
+  {
+    id: 1,
+    date: "2022-12-11",
+    vehicle: "Vehicle 2",
+    route: "Route 2",
+  },
+  {
+    id: 2,
+    date: "2022-12-11",
+    vehicle: "Vehicle 3",
+    route: "Route 3",
+  },
+  {
+    id: 3,
+    date: "2022-12-11",
+    vehicle: "Vehicle 4",
+    route: "Route 4",
+  },
+  {
+    id: 4,
+    date: "2022-12-11",
+    vehicle: "Vehicle 5",
+    route: "Route 5",
+  },
+];
 
 function CollectorTaskList(props) {
   return (
@@ -16,14 +52,45 @@ function CollectorTaskList(props) {
       <Typography variant="h5" gutterBottom sx={{ textAlign: "center" }}>
         Task List
       </Typography>
-      <DetailTaskBox>
-        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
-          Task List
-        </Typography>
-        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
-          Task List
-        </Typography>
-      </DetailTaskBox>
+      <Container sx={{ height: "25vh", overflow: "auto" }}>
+        {collectorTask.map((task) => {
+          return (
+            <Box
+              sx={{
+                paddingTop: "1vh",
+                backgroundColor: "#DEEDE5",
+                borderRadius: "10px",
+              }}
+              key={task.id}
+            >
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ textAlign: "center" }}
+              >
+                {task.date}
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ textAlign: "center" }}
+              >
+                {task.vehicle}
+              </Typography>
+              <Typography
+                variant="h6"
+                gutterBottom
+                sx={{ textAlign: "center" }}
+              >
+                {task.route}
+              </Typography>
+              <IconButton aria-label="delete" size="small">
+                <DeleteIcon fontSize="inherit" />
+              </IconButton>
+            </Box>
+          );
+        })}
+      </Container>
     </Container>
   );
 }
