@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
+import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
@@ -39,6 +40,39 @@ const janitorTask = [
   },
 ];
 
+function JanitorTaskContentBox({ task }) {
+  return (
+    <Box
+      sx={{
+        marginBottom: "1vh",
+        backgroundColor: "#4FE0B6",
+        borderRadius: "10px",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <Stack
+        sx={{
+          width: "95%",
+          overflow: "auto",
+        }}
+      >
+        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+          {task.date}
+        </Typography>
+        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+          {task.MCP}
+        </Typography>
+      </Stack>
+      <Box sx={{ textAlign: "right", paddingRight: "1vw" }}>
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </Box>
+    </Box>
+  );
+}
+
 function JanitorTaskList(props) {
   return (
     <Container>
@@ -46,36 +80,13 @@ function JanitorTaskList(props) {
         Task List
       </Typography>
       <Container sx={{ height: "25vh", overflow: "auto" }}>
-        {janitorTask.map((task) => {
-          return (
-            <Box
-              sx={{
-                paddingTop: "1vh",
-                backgroundColor: "#DEEDE5",
-                borderRadius: "10px",
-              }}
-              key={task.id}
-            >
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{ textAlign: "center" }}
-              >
-                {task.date}
-              </Typography>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{ textAlign: "center" }}
-              >
-                {task.MCP}
-              </Typography>
-              <IconButton aria-label="delete" size="small">
-                <DeleteIcon fontSize="inherit" />
-              </IconButton>
-            </Box>
-          );
-        })}
+        <Grid container spacing={2}>
+          {janitorTask.map((task) => (
+            <Grid item xs={12} md={6} key={task.id}>
+              <JanitorTaskContentBox task={task} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Container>
   );

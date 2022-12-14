@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import vehicleList from "../../assets/vehicle.json";
 import IconButton from "@mui/material/IconButton";
@@ -46,6 +47,42 @@ const collectorTask = [
   },
 ];
 
+function CollectorTaskContentBox({ task }) {
+  return (
+    <Box
+      sx={{
+        marginBottom: "1vh",
+        backgroundColor: "#4FE0B6",
+        borderRadius: "10px",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <Stack
+        sx={{
+          width: "95%",
+          overflow: "auto",
+        }}
+      >
+        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+          {task.date}
+        </Typography>
+        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+          {task.vehicle}
+        </Typography>
+        <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+          {task.route}
+        </Typography>
+      </Stack>
+      <Box sx={{ textAlign: "right", paddingRight: "1vw" }}>
+        <IconButton>
+          <DeleteIcon />
+        </IconButton>
+      </Box>
+    </Box>
+  );
+}
+
 function CollectorTaskList(props) {
   return (
     <Container>
@@ -53,43 +90,13 @@ function CollectorTaskList(props) {
         Task List
       </Typography>
       <Container sx={{ height: "25vh", overflow: "auto" }}>
-        {collectorTask.map((task) => {
-          return (
-            <Box
-              sx={{
-                paddingTop: "1vh",
-                backgroundColor: "#DEEDE5",
-                borderRadius: "10px",
-              }}
-              key={task.id}
-            >
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{ textAlign: "center" }}
-              >
-                {task.date}
-              </Typography>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{ textAlign: "center" }}
-              >
-                {task.vehicle}
-              </Typography>
-              <Typography
-                variant="h6"
-                gutterBottom
-                sx={{ textAlign: "center" }}
-              >
-                {task.route}
-              </Typography>
-              <IconButton aria-label="delete" size="small">
-                <DeleteIcon fontSize="inherit" />
-              </IconButton>
-            </Box>
-          );
-        })}
+        <Grid container spacing={2}>
+          {collectorTask.map((ele) => (
+            <Grid item xs={12} md={6} key={ele.id}>
+              <CollectorTaskContentBox task={ele} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Container>
   );
