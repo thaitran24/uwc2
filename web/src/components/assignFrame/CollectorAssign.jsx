@@ -11,6 +11,9 @@ import { useState } from "react";
 import vehicleList from "../../assets/vehicle.json";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
 import { EmployeeInfo, MCPMultipleSelect } from "./AssignUtils";
 
 // TODO: Replace with real data
@@ -103,6 +106,13 @@ function CollectorTaskList(props) {
 }
 
 function CollectorAssignBox(props) {
+  const [openRoutes, setOpenRoutes] = useState(false);
+  const handleClickOpenRoutes = () => {
+    setOpenRoutes(true);
+  };
+  const handleCloseRoutes = () => {
+    setOpenRoutes(false);
+  };
   return (
     <Container
       sx={{
@@ -170,9 +180,34 @@ function CollectorAssignBox(props) {
           justifyContent: "space-evenly",
         }}
       >
-        <Button variant="contained" color="info">
+        <Button
+          variant="contained"
+          color="info"
+          onClick={handleClickOpenRoutes}
+        >
           Set&nbsp;routes
         </Button>
+        <Dialog open={openRoutes} onClose={handleCloseRoutes} fullWidth maxWidth="xl">
+          <DialogTitle>Set Routes</DialogTitle>
+          <Box
+            noValidate
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              m: "auto",
+              width: "fit-content",
+              height: "fit-content",
+            }}
+          >
+            <Typography variant="h6" gutterBottom sx={{ textAlign: "center" }}>
+              Call API
+            </Typography>
+          </Box>
+          <DialogActions>
+            <Button onClick={handleCloseRoutes} color="info">Accept</Button>
+            <Button onClick={handleCloseRoutes} color="error">Close</Button>
+          </DialogActions>
+        </Dialog>
         <Button variant="contained" color="success">
           Confirm
         </Button>
