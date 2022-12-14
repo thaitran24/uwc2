@@ -187,7 +187,12 @@ function CollectorAssignBox(props) {
         >
           Set&nbsp;routes
         </Button>
-        <Dialog open={openRoutes} onClose={handleCloseRoutes} fullWidth maxWidth="xl">
+        <Dialog
+          open={openRoutes}
+          onClose={handleCloseRoutes}
+          fullWidth
+          maxWidth="xl"
+        >
           <DialogTitle>Set Routes</DialogTitle>
           <Box
             noValidate
@@ -204,8 +209,12 @@ function CollectorAssignBox(props) {
             </Typography>
           </Box>
           <DialogActions>
-            <Button onClick={handleCloseRoutes} color="info">Accept</Button>
-            <Button onClick={handleCloseRoutes} color="error">Close</Button>
+            <Button onClick={handleCloseRoutes} color="info">
+              Accept
+            </Button>
+            <Button onClick={handleCloseRoutes} color="error">
+              Close
+            </Button>
           </DialogActions>
         </Dialog>
         <Button variant="contained" color="success">
