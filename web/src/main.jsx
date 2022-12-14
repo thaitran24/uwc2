@@ -13,6 +13,11 @@ import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
 import "./index.css";
 
+
+window.G_CUR_EMPLOYEE_ID = 0;
+window.G_EMPLOYEE_INFO_FRAME = null;
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,7 +36,7 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/assign/:employeeId",
+        path: "/assign",
         element: <Assign />,
       },
       {

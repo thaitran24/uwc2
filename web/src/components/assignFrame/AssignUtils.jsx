@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Component } from "react";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";

@@ -6,24 +6,32 @@ import CollectorAssign from "../../components/assignFrame/CollectorAssign";
 import JanitorAssign from "../../components/assignFrame/JanitorAssign";
 import { useParams } from "react-router-dom";
 import employees from "../../assets/employee.json";
+import {Component} from "react"
 
-export default function Assign() {
-  const { employeeId } = useParams();
-  const employee = employees.find(
-    (employee) => employee.id === parseInt(employeeId)
-  );
-  return (
-    <DefaultGrid
-      componentsList={[
-        <EmployeeOverview />,
-        <MCPOverview />,
-        <VehicleOverview />,
-        employee.role === "Collector" ? (
-          <CollectorAssign info={employee} />
-        ) : (
-          <JanitorAssign info={employee} />
-        ),
-      ]}
-    />
-  );
+export default class Assign extends Component {
+  constructor() {
+    super();
+    window.G_EMPLOYEE_INFO_FRAME = this;
+    this.state = {id: window.G_CUR_EMPLOYEE_ID};
+    const { employeeId } = window.G_CUR_EMPLOYEE_ID;
+    this.employee = employees.find(
+      (employee) => employee.id === window.G_CUR_EMPLOYEE_ID
+    );
+  }
+
+  render() {
+    return (
+      <DefaultGrid
+        componentsList={[
+          // <EmployeeOverview />,
+          this.employee.role === "Collector" ? (
+            <CollectorAssign info={this.employee} />
+          ) : (
+            <JanitorAssign info={this.employee} />
+          ),
+        ]}
+      />
+    );
+  }
+  
 }

@@ -55,6 +55,11 @@ export default function EmployeeOverview() {
                   hover
                   key={row.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  onClick = {
+                    () => {
+                      window.G_EMPLOYEE_INFO_FRAME.setState({employee: row, id: row.id});
+                    }
+                  }
                 >
                   <TableCell component="th" scope="row">
                     {row.id}
