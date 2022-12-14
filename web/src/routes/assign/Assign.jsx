@@ -23,7 +23,9 @@ export default class Assign extends Component {
     return (
       <DefaultGrid
         componentsList={[
-          // <EmployeeOverview />,
+          <EmployeeOverview />,
+          <MCPOverview />,
+          <VehicleOverview />,
           this.employee.role === "Collector" ? (
             <CollectorAssign info={this.employee} />
           ) : (

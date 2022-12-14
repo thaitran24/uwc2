@@ -12,8 +12,7 @@ export default function HomePage() {
         <EmployeeOverview />,
         <MCPOverview />,
         <VehicleOverview />,
-        // <WeatherInfo />,
-          <Assign/>
+        <WeatherInfo />,
       ]}
     />
   );

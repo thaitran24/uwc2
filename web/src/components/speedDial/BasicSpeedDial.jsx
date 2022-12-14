@@ -7,6 +7,8 @@ import Forum from "@mui/icons-material/Forum";
 import { Link as RouterLink } from "react-router-dom";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+
 
 const makeLink = (to, children) => (
   <Link
@@ -29,6 +31,11 @@ const actions = [
     icon: <Forum />,
     name: "Chat",
     path: "/chat",
+  },
+  {
+    icon: <AssignmentIndIcon />,
+    name: "Assign",
+    path: "/assign",
   },
 ];
 
