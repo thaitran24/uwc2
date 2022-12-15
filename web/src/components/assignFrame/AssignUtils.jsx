@@ -9,6 +9,7 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Checkbox from "@mui/material/Checkbox";
 import ListItemText from "@mui/material/ListItemText";
+import { convertISODate } from "../utils/DateUtils";
 import mcpList from "../../assets/mcp.json";
 
 export function MCPMultipleSelect({ fieldWidth }) {
@@ -57,15 +58,6 @@ export function MCPMultipleSelect({ fieldWidth }) {
   );
 }
 
-// Convert string in simplified extended ISO format to date
-function convertDate(date) {
-  const d = new Date(date);
-  const day = d.getDate();
-  const month = d.getMonth() + 1;
-  const year = d.getFullYear();
-  return `${day}/${month}/${year}`;
-}
-
 export function EmployeeInfo({ employee }) {
   return (
     <Container
@@ -103,7 +95,7 @@ export function EmployeeInfo({ employee }) {
         </Typography>
       </Box>
       <Typography variant="body2" align="center" gutterBottom>
-        Date of birth: {convertDate(employee.dateOfBirth)}
+        Date of birth: {convertISODate(employee.dateOfBirth)}
       </Typography>
       <Typography variant="body2" align="center" gutterBottom>
         Workplace: {employee.workplace}

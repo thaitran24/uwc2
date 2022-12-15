@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,11 +8,52 @@ import TableRow from "@mui/material/TableRow";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import rows from "../../assets/employee.json";
+import { convertISODate } from "../utils/DateUtils";
+import axios from "axios";
+
+// TODO: please change this Url
+const baseUrl = "http://localhost:8000";
+
+const columns = [
+  { id: "emp_id", label: "ID" },
+  { id: "name", label: "Name", align: "right" },
+  {
+    id: "gender",
+    label: "Gender",
+    align: "center",
+  },
+  {
+    id: "birthday",
+    label: "Birthday",
+    align: "right",
+    type: "date",
+  },
+  {
+    id: "role",
+    label: "Role",
+    align: "center",
+  },
+  {
+    id: "working_area",
+    label: "Area",
+    align: "right",
+  },
+];
 
 export default function EmployeeOverview(props) {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [employeeList, setEmployeeList] = useState([]);
+
+  // Get data from backend
+  useEffect(() => {
+    axios.get(`${baseUrl}/api/employee/`, {
+      timeout: 1000,
+    }).then((res) => {
+      setEmployeeList(res.data);
+    });
+  }, []);
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -41,45 +82,47 @@ export default function EmployeeOverview(props) {
         <Table stickyHeader>
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Role</TableCell>
-              <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Workplace</TableCell>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {employeeList
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => (
-                <TableRow
-                  hover
-                  key={row.id}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  onClick = {
-                    () => {
-                      props.func(null, row.id)
-                    }
-                  }
-                >
-                  <TableCell component="th" scope="row">
-                    {row.id}
-                  </TableCell>
-                  <TableCell align="right">{row.name}</TableCell>
-                  <TableCell align="right">{row.role}</TableCell>
-                  <TableCell align="right">{row.status}</TableCell>
-                  <TableCell align="right">
-                    {row.workplace.replace("Workplace ", "")}
-                  </TableCell>
-                </TableRow>
-              ))}
+              .map((row) => {
+                return (
+                  <TableRow hover
+                    key={row.emp_id}
+                  // onClick={
+                  //   () => {
+                  //     props.func(row.emp_id, null)
+                  //   }
+                  // }
+                  >
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id + row.emp_id} align={column.align}>
+                          {column.type === "date" ? convertISODate(value) : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
           </TableBody>
         </Table>
       </TableContainer>
       <TablePagination
         rowsPerPageOptions={[5, 10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={employeeList.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

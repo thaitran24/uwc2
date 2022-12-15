@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,15 +8,17 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
-import rows from "../../assets/mcp.json";
+import axios from "axios";
+
+// TODO: please change this Url
+const baseUrl = "http://localhost:8000";
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 70 },
-  { id: "address", label: "Address", minWidth: 100 },
+  { id: "mcp_id", label: "ID" },
+  { id: "address", label: "Address" },
   {
-    id: "status",
+    id: "storage",
     label: "Status",
-    minWidth: 70,
     align: "right",
   },
 ];
@@ -24,6 +26,16 @@ const columns = [
 export default function MCPOverview() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [mcpList, setMCPList] = useState([]);
+
+  // Get data from backend
+  useEffect(() => {
+    axios.get(`${baseUrl}/api/mcp/`, {
+      timeout: 1000,
+    }).then((res) => {
+      setMCPList(res.data);
+    });
+  }, []);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -56,7 +68,6 @@ export default function MCPOverview() {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth }}
                 >
                   {column.label}
                 </TableCell>
@@ -64,14 +75,19 @@ export default function MCPOverview() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {mcpList
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role={undefined} tabIndex={-1} key={row.id}>
-                    <TableCell>{row.id}</TableCell>
-                    <TableCell>{row.address}</TableCell>
-                    <TableCell align="right">{row.status}</TableCell>
+                  <TableRow hover key={row.mcp_id}>
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id + row.mcp_id} align={column.align}>
+                          {value}
+                        </TableCell>
+                      );
+                    })}
                   </TableRow>
                 );
               })}
@@ -81,7 +97,7 @@ export default function MCPOverview() {
       <TablePagination
         rowsPerPageOptions={[5, 10, 25, 100]}
         component="div"
-        count={rows.length}
+        count={mcpList.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
