@@ -26,13 +26,14 @@ export default function MCPOverview() {
 
   // Get data from backend
   useEffect(() => {
-    axios.get(`${baseUrl}/api/vehicle/`, {
-      timeout: 1000,
-    }).then((res) => {
-      setVehicleList(res.data);
-    });
+    axios
+      .get(`${baseUrl}/api/vehicle/`, {
+        timeout: 1000,
+      })
+      .then((res) => {
+        setVehicleList(res.data);
+      });
   }, []);
-
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -62,10 +63,7 @@ export default function MCPOverview() {
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                >
+                <TableCell key={column.id} align={column.align}>
                   {column.label}
                 </TableCell>
               ))}
@@ -80,7 +78,10 @@ export default function MCPOverview() {
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id + row.vehicle_id} align={column.align}>
+                        <TableCell
+                          key={column.id + row.vehicle_id}
+                          align={column.align}
+                        >
                           {value}
                         </TableCell>
                       );

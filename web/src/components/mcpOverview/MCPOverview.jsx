@@ -30,11 +30,13 @@ export default function MCPOverview() {
 
   // Get data from backend
   useEffect(() => {
-    axios.get(`${baseUrl}/api/mcp/`, {
-      timeout: 1000,
-    }).then((res) => {
-      setMCPList(res.data);
-    });
+    axios
+      .get(`${baseUrl}/api/mcp/`, {
+        timeout: 1000,
+      })
+      .then((res) => {
+        setMCPList(res.data);
+      });
   }, []);
 
   const handleChangePage = (event, newPage) => {
@@ -65,10 +67,7 @@ export default function MCPOverview() {
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                >
+                <TableCell key={column.id} align={column.align}>
                   {column.label}
                 </TableCell>
               ))}
@@ -83,7 +82,10 @@ export default function MCPOverview() {
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id + row.mcp_id} align={column.align}>
+                        <TableCell
+                          key={column.id + row.mcp_id}
+                          align={column.align}
+                        >
                           {value}
                         </TableCell>
                       );

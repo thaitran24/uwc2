@@ -47,13 +47,14 @@ export default function EmployeeOverview(props) {
 
   // Get data from backend
   useEffect(() => {
-    axios.get(`${baseUrl}/api/employee/`, {
-      timeout: 1000,
-    }).then((res) => {
-      setEmployeeList(res.data);
-    });
+    axios
+      .get(`${baseUrl}/api/employee/`, {
+        timeout: 1000,
+      })
+      .then((res) => {
+        setEmployeeList(res.data);
+      });
   }, []);
-
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -83,10 +84,7 @@ export default function EmployeeOverview(props) {
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                >
+                <TableCell key={column.id} align={column.align}>
                   {column.label}
                 </TableCell>
               ))}
@@ -97,19 +95,25 @@ export default function EmployeeOverview(props) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover
+                  <TableRow
+                    hover
                     key={row.emp_id}
-                  // onClick={
-                  //   () => {
-                  //     props.func(row.emp_id, null)
-                  //   }
-                  // }
+                    // onClick={
+                    //   () => {
+                    //     props.func(row.emp_id, null)
+                    //   }
+                    // }
                   >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id + row.emp_id} align={column.align}>
-                          {column.type === "date" ? convertISODate(value) : value}
+                        <TableCell
+                          key={column.id + row.emp_id}
+                          align={column.align}
+                        >
+                          {column.type === "date"
+                            ? convertISODate(value)
+                            : value}
                         </TableCell>
                       );
                     })}
