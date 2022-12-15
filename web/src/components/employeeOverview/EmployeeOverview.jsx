@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import rows from "../../assets/employee.json";
 
-export default function EmployeeOverview() {
+export default function EmployeeOverview(props) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -22,6 +22,7 @@ export default function EmployeeOverview() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
   return (
     <Paper
       sx={{
@@ -57,7 +58,7 @@ export default function EmployeeOverview() {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   onClick = {
                     () => {
-                      window.G_EMPLOYEE_INFO_FRAME.setState({employee: row, id: row.id});
+                      props.func(null, row.id)
                     }
                   }
                 >

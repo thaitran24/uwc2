@@ -6,5 +6,8 @@
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
     // "css.lint.unknownAtRules":"ignore"
 }
