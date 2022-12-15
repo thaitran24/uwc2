@@ -1,0 +1,13 @@
+{
+    "git.autofetch": true,
+    "[javascript][javascriptreact][css][json][html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    // "css.lint.unknownAtRules":"ignore"
+}
