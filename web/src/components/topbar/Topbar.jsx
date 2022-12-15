@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import Logo from "../../assets/logo-black.svg";
 import Logout from "@mui/icons-material/Logout";
 import Forum from "@mui/icons-material/Forum";
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { Link as RouterLink } from "react-router-dom";

@@ -5,7 +5,7 @@ import VehicleOverview from "../../components/vehicleOverview/VehicleOverview";
 import CollectorAssign from "../../components/assignFrame/CollectorAssign";
 import JanitorAssign from "../../components/assignFrame/JanitorAssign";
 import employees from "../../assets/employee.json";
-import { Component } from "react"
+import { Component } from "react";
 import { useState } from "react";
 
 export default function Assign(props) {
@@ -16,13 +16,10 @@ export default function Assign(props) {
     setEmployee(employees[id]);
   };
 
-
   return (
     <DefaultGrid
       componentsList={[
-        <EmployeeOverview
-          func={changeId}
-        />,
+        <EmployeeOverview func={changeId} />,
         <MCPOverview />,
         <VehicleOverview />,
         employee.role === "Collector" ? (
@@ -33,6 +30,4 @@ export default function Assign(props) {
       ]}
     />
   );
-
-
 }
