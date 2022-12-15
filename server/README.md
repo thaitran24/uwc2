@@ -1,4 +1,15 @@
 # Server for UWC2
+## Set up environment
+For connecting to MySQL database, create `.env` with format:
+```
+DB_HOST="<database_host>"
+DB_PORT="<host_port>"
+DB_USER="<database_user>"
+DB_PASSWORD="<database_password>"
+DB_NAME="<database_name>"
+```
+Also run the `server/database/*.sql` file in increasing order for creating database. 
+
 ## Check out for more api url in `src/routes` folder
 ## TASK
 - `GET API` - `api/task/`: Get all task
