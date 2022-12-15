@@ -14,9 +14,6 @@ import "@fontsource/inter/700.css";
 import "./index.css";
 
 
-window.G_CUR_EMPLOYEE_ID = 0;
-
-
 const router = createBrowserRouter([
   {
     path: "/",
