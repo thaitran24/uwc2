@@ -15,7 +15,6 @@ import "./index.css";
 
 
 window.G_CUR_EMPLOYEE_ID = 0;
-window.G_EMPLOYEE_INFO_FRAME = null;
 
 
 const router = createBrowserRouter([
