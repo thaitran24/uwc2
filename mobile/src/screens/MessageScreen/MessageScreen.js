@@ -15,24 +15,21 @@ const Messages = [
     userName: "Jenny Doe",
     userImg: require("../../../assets/images/team_logo.png"),
     messageTime: "4 mins ago",
-    messageText:
-      "Hey there, this is my test for a post of my social app in React Native.",
+    messageText: "Have u checked the daily task?",
   },
   {
     id: "2",
     userName: "John Doe",
     userImg: require("../../../assets/images/team_logo.png"),
     messageTime: "2 hours ago",
-    messageText:
-      "Hey there, this is my test for a post of my social app in React Native.",
+    messageText: "How do you do :p",
   },
   {
     id: "3",
     userName: "Ken William",
     userImg: require("../../../assets/images/team_logo.png"),
     messageTime: "1 hours ago",
-    messageText:
-      "Hey there, this is my test for a post of my social app in React Native.",
+    messageText: "idk. I think you should ask John",
   },
   {
     id: "4",
@@ -47,8 +44,7 @@ const Messages = [
     userName: "Christy Alex",
     userImg: require("../../../assets/images/team_logo.png"),
     messageTime: "2 days ago",
-    messageText:
-      "Hey there, this is my test for a post of my social app in React Native.",
+    messageText: "Supp",
   },
 ];
 

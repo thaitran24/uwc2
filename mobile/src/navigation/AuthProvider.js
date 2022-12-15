@@ -7,6 +7,8 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
+  const [isCheckIn, setIsCheckIn] = useState(false);
+  const [isCheckOut, setIsCheckOut] = useState(false);
 
   const value = {
     isLogin,
@@ -26,6 +28,10 @@ export const AuthProvider = ({ children }) => {
     // //     console.log(e);
     // //   }
     // // },
+    isCheckIn,
+    setIsCheckIn,
+    isCheckOut,
+    setIsCheckOut,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

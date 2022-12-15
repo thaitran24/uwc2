@@ -5,11 +5,7 @@ import moment from "moment";
 
 import TaskList from "../../components/TaskList/TaskList";
 
-import { AuthContext } from "../../navigation/AuthProvider";
-
 export default function JobTracker() {
-  const { setIsLogin } = useContext(AuthContext);
-
   const [selectedDate, setSelectedDate] = useState("");
   const [markedDates, setMarkedDates] = useState({});
 
@@ -28,19 +24,9 @@ export default function JobTracker() {
     setMarkedDates(markedDates);
   };
 
-  const onPressCheckIn = () => {
-    console.log("Handle check in!");
-  };
-
-  const onPressCheckOut = () => {
-    console.log("Handle check out!");
-    setIsLogin(false);
-  };
-
   return (
     <ScrollView>
       <View style={styles.container}>
-        {/* <Text style={{ alignItems: "center", padding: 10 }}>Search</Text> */}
         <Calendar
           style={styles.calendar}
           theme={{
@@ -70,13 +56,7 @@ export default function JobTracker() {
             getSelectedDayEvents(day.dateString);
           }}
         />
-        {taskVisible && (
-          <TaskList
-            date={selectedDate}
-            onPressCheckIn={onPressCheckIn}
-            onPressCheckout={onPressCheckOut}
-          />
-        )}
+        {taskVisible && <TaskList date={selectedDate} />}
       </View>
     </ScrollView>
   );

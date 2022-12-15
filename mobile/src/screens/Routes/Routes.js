@@ -1,7 +1,8 @@
 import { Dimensions, StyleSheet, Text, View } from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import React from "react";
+import CustomButton from "../../components/CustomButton/CustomButton";
 
 const { width, height } = Dimensions.get("window");
 const ASPECT_RATIO = width / height;
@@ -19,7 +20,6 @@ const INITIAL_POSITION = {
 export default function Routes() {
   return (
     <View style={styles.container}>
-      <Text>Routes</Text>
       <MapView
         style={styles.map}
         provider={PROVIDER_GOOGLE}
@@ -36,6 +36,9 @@ export default function Routes() {
           language: "en",
         }}
       /> */}
+      <View>
+        <CustomButton onPress={() => {}} text={"Start"} />
+      </View>
     </View>
   );
 }
@@ -46,6 +49,6 @@ const styles = StyleSheet.create({
   },
   map: {
     width: "100%",
-    height: "80%",
+    height: "100%",
   },
 });

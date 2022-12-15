@@ -81,10 +81,11 @@ export default function AppStack() {
       />
 
       <Tab.Screen
-        name="Check"
+        name="Daily Task"
         component={CheckInOut}
         options={{
           tabBarLabel: "Check",
+          // headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="check" color={color} size={size} />
           ),
