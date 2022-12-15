@@ -10,6 +10,11 @@ DB_NAME="<database_name>"
 ```
 Also run the `server/database/*.sql` file in increasing order for creating database. 
 
+## How to run
+- Install NodeJS
+- Install packages by: `npm install`
+- Set up environment above and run: `npm run`
+
 ## Check out for more api url in `src/routes` folder
 ## TASK
 - `GET API` - `api/task/`: Get all task
